@@ -65,3 +65,6 @@ gem 'devise'
 gem 'faker'
 gem 'table_print'
 gem 'cancancan'
+
+#Bootstrap
+gem 'bootstrap', '~> 4.0.0'
