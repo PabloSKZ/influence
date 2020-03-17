@@ -1,21 +1,23 @@
-<form>
-  <fieldset>
-    <legend>Modifier le projet</legend>
-    
-    <div class="form-group">
-      <label for="exampleInputEmail1">Titre du projet</label>
-      <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Projet de scrapping nhentai">  
-    </div>
-    
-    
-    <div class="form-group">
-      <label for="exampleTextarea">Description du projet</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputFile">Image</label>
-      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">Veuillez sélectionner une image pour représenter votre projet</small>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<legend><h2>Modifier le projet.</h2></legend>
+  
+<% if @errors%>
+  <% @errors.messages.each do |message|%>
+  <div class="alert alert-danger" role="alert">
+  Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
+  </div>
+    <% end%>
+  <% end %>
+
+  <%= form_tag url_for(action: 'update'), method: "patch" do %>
+  <%= label_tag 'Titre' %>
+  <%= text_field_tag 'title' %>
+  <br> <br>
+
+  <%= label_tag 'Description' %>
+  <%= text_area_tag 'description' %>
+  <br><br>
+  
+  <%= submit_tag("Modifier le projet", class: "btn btn-primary") %>
+
+  <% end %>
+  

@@ -10,6 +10,7 @@
         <div class="card-footer text-muted text-center" >
           <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-primary" %>
           <%= hidden_field(:id, :token) %>
+          <%= link_to 'Retourner à l\'index des projets', projects_path, class: 'btn btn-primary' %>
         </div>
       </div>  
 </div>
