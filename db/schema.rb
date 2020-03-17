@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_03_17_154025) do
     t.string "last_name"
     t.text "description"
     t.string "picture"
-    t.string "type"
+    t.string "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
