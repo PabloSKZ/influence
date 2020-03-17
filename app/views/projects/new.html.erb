@@ -1,5 +1,5 @@
-<form>
-  <fieldset style="padding: 2em;">
+<form class="mt-5">
+  <fieldset style="padding: 2em; width: 25%; margin: auto;">
     <legend>  <h2>Créer un nouveau projet.</h2></legend>
   
   <% if @errors%>
@@ -20,9 +20,9 @@
     <div class="form-group">
       <label for="exampleInputFile">Image</label>
       <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">Veuillez sélectionner une image pour représenter votre projet</small>
+      <small id="fileHelp" class="form-text text-muted">Une image pour représenter votre projet (facultatif, mais une annonce sans image est moins visible !)</small>
     </div><br>
-    <%= submit_tag "Créer le projet", class: "btn btn-primary", method: :create %>
+    <%= submit_tag "Créer le projet", class: "btn btn-primary", method: :post %>
   
     <% end %>
     </div>
