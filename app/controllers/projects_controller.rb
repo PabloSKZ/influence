@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
 
   def new
     puts params
-    puts "OH ZEBI FONCTIONNE LQ NON"
+    puts "OH ZEBI FONCTIONNE LA NON"
   end
 
   def create
