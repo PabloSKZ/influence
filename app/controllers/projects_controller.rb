@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
 
   def new
     puts params
-    puts "$"*60
+    puts "OH ZEBI FONCTIONNE LQ NON"
   end
 
   def create
