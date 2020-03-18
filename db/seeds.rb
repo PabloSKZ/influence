@@ -51,7 +51,7 @@ User.create(
     Project.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
-        img_url: "https://i.kym-cdn.com/entries/icons/mobile/000/026/738/future.jpg",
+        picture: "https://i.kym-cdn.com/entries/icons/mobile/000/026/738/future.jpg",
         user_id: User.where(user_type:"influencer").sample.id
     )
 end
