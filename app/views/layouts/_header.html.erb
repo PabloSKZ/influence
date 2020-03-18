@@ -7,27 +7,28 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
-  <ul class="navbar-nav mr-auto">
+  <ul class="navbar-nav m-auto">
     <li class="nav-item active">
-    <%= link_to 'Projects', root_path, class: 'nav-link' %>
+    <%= link_to 'Accueil', root_path, class: 'nav-link' %>
     </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Créer Projets</a>
-  </li>
-  <li class="nav-item">
-  <a class="nav-link" href="#">Annonces Freelances</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">A Propos</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Contact</a>
+    <li class="nav-item mt-3">
+    <%= link_to 'Créer Projet / Annonce', root_path, class: 'nav-link' %>
+    </li>
+  <li class="nav-item mt-3">
+ <%= link_to 'A Propos', root_path, class: 'nav-link' %>
+ </li>
+ <li class="nav-item mt-3">
+ <%= link_to 'Contact', root_path, class: 'nav-link' %>
 </li>
 </ul>
 
+<button class="btn btn-secondary mr-5" type="button"  aria-haspopup="true" aria-expanded="false">
+   Je suis Freelance
+    </button>
+
   <% if !user_signed_in? %>
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Se connecter
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -37,7 +38,7 @@
   </div>
   <% else %>
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Mon compte
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

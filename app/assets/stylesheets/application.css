@@ -31,4 +31,12 @@
    color: grey;
    text-align: center;
  }
+
  
+ .btn-primary {
+   background-color: #ff0090;
+ }
+
+ .btn-primary:hover {
+     background-color: gray;
+ }
