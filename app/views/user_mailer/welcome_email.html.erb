@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div>
+      <h1>Salut <%= @user.first_name %> et bienvenue chez nous !</h1>
+        <div>
+          <p>
+            Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : <%= @user.email %>.
+          </p>
+          <p>
+            Pour accéder à ton espace client, connecte-toi via : <a href ="<%= @url %>">test</a>.
+          </p>
+          <p> À très vite sur monsite.fr !
+        </div>
+    </div>
+  </body>
+</html>
