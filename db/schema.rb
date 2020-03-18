@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_172349) do
+ActiveRecord::Schema.define(version: 2020_03_18_102909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,16 +22,32 @@ ActiveRecord::Schema.define(version: 2020_03_17_172349) do
     t.string "link_field"
     t.string "price"
     t.string "tag"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_adverts_on_user_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "adverts_projects_joins", force: :cascade do |t|
+    t.bigint "advert_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advert_id"], name: "index_adverts_projects_joins_on_advert_id"
+    t.index ["project_id"], name: "index_adverts_projects_joins_on_project_id"
+  end
+
+>>>>>>> tables_relations
   create_table "projects", force: :cascade do |t|
     t.text "description"
     t.string "img_url"
     t.string "title"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +67,8 @@ ActiveRecord::Schema.define(version: 2020_03_17_172349) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "adverts", "users"
+  add_foreign_key "adverts_projects_joins", "adverts"
+  add_foreign_key "adverts_projects_joins", "projects"
+  add_foreign_key "projects", "users"
 end
