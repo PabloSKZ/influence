@@ -23,12 +23,12 @@
 
 
  .page-footer {
-   position: fixed;
+   position: relative;
    left: 0;
    bottom: 0;
    width: 100%;
    background-color: #f7f7f9;
-   color: white;
+   color: grey;
    text-align: center;
  }
  
