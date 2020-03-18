@@ -1,0 +1,49 @@
+<% flash.each do |type, msg| %>
+
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <p class="mb-0"><strong>Attention, </strong><%= msg %></p>
+</div>
+
+<div>
+    
+  </div>
+<% end %>
+<nav class="login-form mt-5">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header text-white bg-primary">Se connecter</div>
+                  <div class="card-body">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="form-group row">
+    <%= f.label :email, class: "col-md-4 col-form-label text-md-right" %>
+    <div class="col-md-6">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id:"email_address" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :mot_de_passe, class: "col-md-4 col-form-label text-md-right"%>
+    <div class="col-md-6">
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-md-6 offset-md-4">
+    <%= f.submit "Se connecter", class: "btn btn-primary mx-5" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav >
+

@@ -1,0 +1,29 @@
+<nav class="login-form mt-5">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-8">
+              <div class="card">
+                    <div class="card-header text-white bg-primary">Mot de passe oublié ?</div>
+                  <div class="card-body">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group row">
+    <%= f.label :email, class: "col-md-4 col-form-label text-md-right" %>
+    <div class="col-md-6">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id:"email_address" %>
+  </div>
+  </div>
+
+  <div class="col-md-6 offset-md-4">
+    <%= f.submit "Mot de passe oublié", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+                  </div>
+              </div>
+          </div>
+        </div>
+        </div>
+        </nav>
