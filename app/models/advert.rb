@@ -1,5 +1,6 @@
 class Advert < ApplicationRecord
   belongs_to :user
-  belongs_to :project
+  has_many :adverts_projects_joins
+  has_many :projects, through: :adverts_projects_joins
   # validates :title, :description, :price, :tag, presence: true --- a decommenter lorsque pret a utiliser
 end
