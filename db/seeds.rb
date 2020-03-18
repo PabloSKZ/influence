@@ -52,7 +52,8 @@ User.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
         picture: "https://i.kym-cdn.com/entries/icons/mobile/000/026/738/future.jpg",
-        user_id: User.where(user_type:"influencer").sample.id
+        user_id: User.where(user_type:"influencer").sample.id,
+        link_field: "http://www.instagram.com"
     )
 end
 
