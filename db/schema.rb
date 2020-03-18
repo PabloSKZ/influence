@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2020_03_18_102909) do
     t.index ["user_id"], name: "index_adverts_on_user_id"
   end
 
-<<<<<<< HEAD
-=======
   create_table "adverts_projects_joins", force: :cascade do |t|
     t.bigint "advert_id"
     t.bigint "project_id"
@@ -39,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_03_18_102909) do
     t.index ["project_id"], name: "index_adverts_projects_joins_on_project_id"
   end
 
->>>>>>> tables_relations
   create_table "projects", force: :cascade do |t|
     t.text "description"
     t.string "img_url"
