@@ -1,0 +1,51 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">
+  <%=image_tag('LogoInfluence-negatif3.png', class: "d-inline-block align-top logo")%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+  <ul class="navbar-nav m-auto">
+    <li class="nav-item active">
+    <%= link_to 'Accueil', root_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item mt-3">
+    <%= link_to 'Créer Projet / Annonce', root_path, class: 'nav-link' %>
+    </li>
+  <li class="nav-item mt-3">
+ <%= link_to 'A Propos', root_path, class: 'nav-link' %>
+ </li>
+ <li class="nav-item mt-3">
+ <%= link_to 'Contact', root_path, class: 'nav-link' %>
+</li>
+</ul>
+
+<button class="btn btn-secondary mr-5" type="button"  aria-haspopup="true" aria-expanded="false">
+   Je suis Freelance
+    </button>
+
+  <% if !user_signed_in? %>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Se connecter
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "J\'ai deja un compte", new_user_session_path, class: 'dropdown-item' %>
+      <%= link_to "S\'inscrire", new_user_registration_path, class: 'dropdown-item' %>
+    </div>
+  </div>
+  <% else %>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Mon compte
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</nav>
+
