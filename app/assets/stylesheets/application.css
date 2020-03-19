@@ -40,3 +40,8 @@
  .btn-primary:hover {
      background-color: gray;
  }
+
+ .jumbotron {
+  background-image: url("ban.jpg");
+  background-size: cover;
+}
