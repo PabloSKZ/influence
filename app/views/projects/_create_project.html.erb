@@ -1,11 +1,11 @@
     <legend><h2>Créer un nouveau projet.</h2></legend>
   
-  <% if @errors%>
-    <% @errors.messages.each do |message|%>
+  <% if @errors %>
+    <% @errors.messages.each do |message| %>
     <div class="alert alert-danger" role="alert">
     Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
     </div>
-      <% end%>
+      <% end %>
     <% end %>
 
     <%= form_tag url_for(action: 'create'), method: "post" do %>
@@ -15,6 +15,10 @@
   
     <%= label_tag 'Description' %>
     <%= text_area_tag 'description' %>
+    <br><br>
+
+    <%= label_tag 'Liens divers (Linkdin, CV, portfolio...)' %>
+    <%= text_area_tag 'link_field' %>
     <br><br>
     
     <%= submit_tag("Créer le projet", class: "btn btn-primary") %>

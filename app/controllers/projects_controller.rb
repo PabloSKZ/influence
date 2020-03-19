@@ -1,12 +1,16 @@
 class ProjectsController < ApplicationController
   def index
+    if current_user == nil
+      flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des porjets."
+      redirect_to new_user_session_path
+     end
     @projects = Project.all
   end
 
   def show
-    # if current_user == nil
-      # redirect_to root_path
-    # end
+     if current_user == nil
+      redirect_to root_path
+     end
     @project = Project.find(params[:id])
     session[:id] = @project.id
   end
@@ -18,7 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(title: params[:title], description: params[:description], img_url: '#')
+    @project = Project.new(title: params[:title], description: params[:description], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id, link_field: params[:link_field])
       if @project.save
         flash[:notice] = "Votre projet a bien été créé."
         redirect_to root_path
@@ -28,14 +32,12 @@ class ProjectsController < ApplicationController
       end
   end
 
-  def edit
-  end
-
   def update
     @project = Project.find(params[:id])
-  if @project.update(title: params[:title], description: params[:description])
+  if @project.update(title: params[:title], description: params[:description], link_field: params[:link_field])
     redirect_to @project
   else
+    flash[:notice] = "Votre projet a bien été modifié."
     render :edit
   end
   end
