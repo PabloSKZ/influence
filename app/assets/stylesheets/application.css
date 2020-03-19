@@ -38,10 +38,16 @@
  }
 
  .btn-primary:hover {
-     background-color: gray;
+     background-color: #e70083;
+ }
+
+ .btn-lg {
+   font-size: 0.8em;
+   margin: 10px;
  }
 
  .jumbotron {
   background-image: url("ban.jpg");
   background-size: cover;
 }
+
