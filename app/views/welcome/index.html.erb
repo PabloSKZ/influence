@@ -19,5 +19,8 @@
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </p>
 </div>
+  <% if current_user != nil && current_user.user_type == "freelance" %>
+    <%= render "projects/index" %>
+  <% end %>
   </body>
 </html>
