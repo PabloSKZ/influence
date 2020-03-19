@@ -19,7 +19,14 @@
         </div>
       </div>
         <div class="sub-block d-flex align-items-center" style="width:40%;">
-          <a href="#" class="btn btn-primary" style="width:100%;">Inviter a un projet</a>
+          <% if current_user.id == @advert.user_id %>
+          <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary" %>
+        <% elsif current_user.user_type == 'influencer' %>
+          <% current_user.projects.each do |project| %>
+            <%= link_to "Inviter sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "btn btn-primary mb-1" %>
+          <% end %>
+        <% end %>
+        <%= link_to 'Retourner à l\'index des annonces', adverts_path, class: 'btn btn-primary' %>
         </div>
       </div>
   </div>
