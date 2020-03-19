@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 2020_03_18_102909) do
 
   create_table "projects", force: :cascade do |t|
     t.text "description"
-    t.string "img_url"
+    t.string "picture"
     t.string "title"
+    t.string "link_field"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_102909) do
     t.string "last_name"
     t.text "description"
     t.string "picture"
-    t.string "type"
+    t.string "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
