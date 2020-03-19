@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     if current_user == nil
-      flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des porjets."
+      flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
      end
     @projects = Project.all
@@ -9,7 +9,8 @@ class ProjectsController < ApplicationController
 
   def show
      if current_user == nil
-      redirect_to root_path
+      flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
+      redirect_to new_user_session_path
      end
     @project = Project.find(params[:id])
     session[:id] = @project.id
