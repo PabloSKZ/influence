@@ -1,7 +1,7 @@
 class AdvertsProjectsJoinController < ApplicationController
     def create
-        puts "$"*100
-        @project = Project.find(params[:id])
-        @ad_pro_join = AdvertsProjectsJoin.create(project_id: @project.id, advert_id: )
+        puts params
+        @ad_pro_join = AdvertsProjectsJoin.create(project_id: params[:project_id], advert_id: params[:token])
+        redirect_to root_path
     end
 end
