@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 2020_03_18_102909) do
 
   create_table "projects", force: :cascade do |t|
     t.text "description"
-    t.string "img_url"
+    t.string "picture"
     t.string "title"
+    t.string "link_field"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
