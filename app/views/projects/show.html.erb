@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class='container' style="margin-top: 5rem;">
+<div class='container' style="margin-top: 5rem;">
     <div class="card mb-5" style="width:80%; margin: auto;">
       <h4 class="card-header bg-primary text-white text-center"><%= @project.title =%></h4>
       <img style="height: auto; width: 100%; display: block;" src="<%= @project.picture =%>" alt="Card image">
       <div class="card-body text-center">
         <p class="card-text"><h5>Description du projet:</h5> <%= @project.description.tr('[\"\"]','') =%></p>
-        <P class="card-text"><h6>Liens:</h6> <%= @project.link_field.tr('[\"\"]','') =%></p> 
+        <p class="card-text"><h6>Liens:</h6> <%= @project.link_field.tr('[\"\"]','') =%></p> 
+          <p class="card-text">
+            <h6>Freelances sur le projet :</h6>
+            <ul class="list-group">
+            <% @project.adverts.each do |advert| %>
+            <li class="list-group-item">
+              <%= link_to "#{advert.user.first_name}, #{advert.tag}", advert_path(advert.id) %>
+            </li>
+            <% end %>
+          </ul>
+          </p>
       <div class="card-body text-muted text-center" >
         <% if current_user != nil && current_user.id == @project.user_id %>
           <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-primary" %>
@@ -26,5 +27,4 @@
       </div>
     </div>  
 </div>
-</body>
-</html>
+</div>
