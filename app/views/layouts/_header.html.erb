@@ -20,7 +20,7 @@
 </ul>
 
   <% if current_user != nil && current_user.user_type == "freelance" %>
-    <%= link_to 'Créer une annonce', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
+    <%= link_to 'Créer une annonce', new_advert_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
   <% elsif current_user != nil && current_user.user_type == "influencer" %>
     <%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
   <% end %>

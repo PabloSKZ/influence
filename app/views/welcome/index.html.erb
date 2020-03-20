@@ -1,4 +1,5 @@
   <div class="jumbotron text-center text-white">
+    <% if current_user == nil %>
   <h1 class="display-4  text-white">Booste ta carrière d’influenceur</h1>
   <p class="lead">Créer ton projet en 3 clics et engage des Freelances pour professionnaliser tes Réseaux.</p>
   <p>Les meilleurs photographes, monteurs, maquilleurs et graphistes à portée de clic !</p>
@@ -7,6 +8,23 @@
     <%= link_to "Je suis Influenceur", new_user_registration_path(user_type:"influencer"), class: "btn btn-primary btn-lg" %>
     <%= link_to "Je suis Freelance", new_user_registration_path(user_type:"freelance"), class: "btn btn-secondary btn-lg" %>
   </p>
+    <% elsif current_user != nil && current_user.user_type == "freelance" %>
+  <h1 class="display-4  text-white">Bonjour <%= current_user.first_name %> !</h1>
+  <p class="lead">Prêt à faire décoller ta carrière de Freelance ?</p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to "Accèder à mon Dashboard", dashboard_show_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Créer une Annonce", new_advert_path, class: "btn btn-secondary btn-lg" %>
+  </p>
+    <% elsif current_user != nil && current_user.user_type == "influencer" %>
+  <h1 class="display-4  text-white">Bonjour <%= current_user.first_name %> !</h1>
+  <p class="lead">Prêt à faire décoller ta carrière d'Influenceur ?</p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to "Accèder à mon Dashboard", dashboard_show_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Créer un Projet", new_project_path, class: "btn btn-secondary btn-lg" %>
+  </p>
+    <% end %>
 </div>
   <% if current_user != nil && current_user.user_type == "freelance" %>
     <%= render "projects/index" %>
