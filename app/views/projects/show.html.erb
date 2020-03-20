@@ -11,13 +11,10 @@
     <div class="card mb-5" style="width:80%; margin: auto;">
       <h4 class="card-header bg-primary text-white text-center"><%= @project.title =%></h4>
       <img style="height: auto; width: 100%; display: block;" src="<%= @project.picture =%>" alt="Card image">
-      <div class="card-body">
-        <p class="card-text"><h3>Description du projet:</h3> <%= @project.description.tr('[\"\"]','') =%></p>
-        <P class="card-text"><h5>Liens:</h5> <%= @project.link_field.tr('[\"\"]','') =%></p>
-        <hr>
-        
-      </div>
-      <div class="card-footer text-muted text-center" >
+      <div class="card-body text-center">
+        <p class="card-text"><h5>Description du projet:</h5> <%= @project.description.tr('[\"\"]','') =%></p>
+        <P class="card-text"><h6>Liens:</h6> <%= @project.link_field.tr('[\"\"]','') =%></p> 
+      <div class="card-body text-muted text-center" >
         <% if current_user != nil && current_user.id == @project.user_id %>
           <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-primary" %>
         <% elsif current_user != nil && current_user.user_type == 'freelance' %>
