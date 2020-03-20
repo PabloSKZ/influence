@@ -1,5 +1,10 @@
-<legend><h2>Modifier le projet.</h2></legend>
-  
+<nav class="login-form mt-5">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-8">
+              <div class="card">
+                    <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier le projet</h4></div>
+                  <div class="card-body">
 <% if @errors%>
   <% @errors.messages.each do |message|%>
   <div class="alert alert-danger" role="alert">
@@ -7,21 +12,38 @@
   </div>
     <% end%>
   <% end %>
-
+  
+  <div class="form-group row justify-content-center">
+  <div class="col-md-8">
   <%= form_tag url_for(action: 'update'), method: "patch" do %>
   <%= label_tag 'Titre' %>
-  <%= text_field_tag 'title' %>
+  <%= text_field_tag 'title'%>
   <br> <br>
-
+  </div>
+  </div>
+  <div class="form-group row justify-content-center">
+  <div class="col-md-8">
   <%= label_tag 'Description' %>
   <%= text_area_tag 'description' %>
   <br><br>
+  </div>
+  </div>
 
+  <div class="form-group row justify-content-center">
+  <div class="col-md-8">
   <%= label_tag 'Liens divers (Linkdin, CV, portfolio...)' %>
   <%= text_area_tag 'link_field' %>
   <br><br>
-  
-  <%= submit_tag("Modifier le projet", class: "btn btn-primary") %>
+  </div>
+  </div>
+  <div class="form-group row justify-content-center">
+  <%= submit_tag("Modifier le projet", class: "btn btn-primary text-center") %>
 
   <% end %>
-  
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</nav >
