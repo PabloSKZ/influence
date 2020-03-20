@@ -1,49 +1,45 @@
-<div class="container mt-4">
-  <div class="card flex-row mb-5 " style="height:20rem;">
-    <img style="width:35rem; height:20rem; ml-3"src="<%= @advert.picture %>" alt="">
-    <div class="block d-flex" style="width:100%;">
-      <div class="sub-block d-flex flex-column justify-content-between pl-4" style="width:70%;">
-        <div class="card-block pt-4" style="width:60%;">
-          <h3 class="card-title"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h3>
-          <h6 class="card-text"><%= @advert.tag %></h6>
-        </div>
-        <div>
-        <p>Description : </p>
-          <p class="card-text"><%= @advert.description %></p>
-        </div>
-        <div class="card-block pb-2">
-          <div class="price-container bg-primary" style="display:flex;align-items:center;width:35%;height:4rem;border-radius:10px;padding-left:12px;">
-            <div class="circle bg-secondary" style="width:5px;height:40px;border:1px solid black;border-radius:7px;" ></div>
-            <div class="text-white ml-3">
-              <p style="margin-bottom:0;">Tarif indicatif : </small></p>
-              <h5 style="margin-bottom:0;"><span class="font-weight-bold text-white"><%=@advert.price %>$</span><span class="text-muted small">/ jour</span></h5>
-            </div>
-          </div>
-          <h6 class="card-text mt-3"> Lien : <a href ="<%= @advert.link_field %>"><%= @advert.link_field %></a></h6>
-        </div>
-      </div>
 
-      
-        <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:40%;">
-          <% if current_user == nil %>
-          <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
-          <% elsif current_user != nil && current_user.id == @advert.user_id %>
-          <div>
-            <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary" %>
-          </div>
-        <% elsif current_user != nil && current_user.user_type == 'influencer' %>
-          <% current_user.projects.each do |project| %>
-            <div>
-              <%= link_to "Inviter sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "btn btn-primary mb-2" %>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3 col-sm-6">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a target="_blank" href="https://scripteden.com/">Script Eden</a>
+                    </div>
+                    <div class="desc">Passionate designer</div>
+                    <div class="desc">Curious developer</div>
+                    <div class="desc">Tech geek</div>
+                </div>
+                <div class="bottom">
+                    <a class="btn btn-primary btn-twitter " href="https://twitter.com/webmaniac">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" rel="publisher"
+                       href="https://plus.google.com/+ahmshahnuralam">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a class="btn btn-primary btn-sm" rel="publisher"
+                       href="https://plus.google.com/shahnuralam">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+                        <i class="fa fa-behance"></i>
+                    </a>
+                </div>
             </div>
-          <% end %>
-        <% end %>
-        <div>
-          <%= link_to 'Retourner à annonces', adverts_path, class: 'btn btn-primary views-projects mr-5', style: 'width:244px;' %>
-          </div>
+
         </div>
-        </div>
-      </div>
-  </div>
-</div>
+
+	</div>
 </div>
