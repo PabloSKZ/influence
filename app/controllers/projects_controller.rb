@@ -46,8 +46,11 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
-    @project.destroy_all
-
-    redirect_to root_path
+    @project.delete
+    @employment = AdvertsProjectdsJoin.find_by(project_id:params[:project_id])
+    @employment.delete
+    if @project.save & @employment.save
+      redirect_to root_path
+    end
   end
 end
