@@ -6,7 +6,6 @@
         <% advert.projects.each do |project| %>
             <li class="list-group-item d-flex justify-content-between align-items-center mb-1 d-flex justify-content-between">
                 <%= project.title %> <%= project.description %> <%= link_to "Détails du projet", project_path(project.id) %>
-            <span class="badge badge-primary badge-pill">Test affichage</span>
             </li>
         <% end %>
     </ul>

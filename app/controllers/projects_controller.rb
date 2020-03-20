@@ -35,12 +35,19 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
-  if @project.update(title: params[:title], description: params[:description], link_field: params[:link_field])
-    redirect_to @project
-  else
-    flash[:notice] = "Votre projet a bien été modifié."
-    render :edit
+      @project = Project.find(params[:id])
+    if @project.update(title: params[:title], description: params[:description], link_field: params[:link_field])
+      redirect_to @project
+    else
+      flash[:notice] = "Votre projet a bien été modifié."
+      render :edit
+    end
   end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy_all
+
+    redirect_to root_path
   end
 end
