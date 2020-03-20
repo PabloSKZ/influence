@@ -1,5 +1,4 @@
-    <legend><h2>Créer un nouveau projet.</h2></legend>
-  
+
   <% if @errors %>
     <% @errors.messages.each do |message| %>
     <div class="alert alert-danger" role="alert">
@@ -21,6 +20,6 @@
     <%= text_area_tag 'link_field' %>
     <br><br>
     
-    <%= submit_tag("Créer le projet", class: "btn btn-primary") %>
+    <%= submit_tag("Créer le projet", class: "btn btn-primary text-center") %>
   
     <% end %>
