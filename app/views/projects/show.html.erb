@@ -18,9 +18,9 @@
         
       </div>
       <div class="card-footer text-muted text-center" >
-        <% if current_user.id == @project.user_id %>
+        <% if current_user != nil && current_user.id == @project.user_id %>
           <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-primary" %>
-        <% elsif current_user.user_type == 'freelance' %>
+        <% elsif current_user != nil && current_user.user_type == 'freelance' %>
           <% current_user.adverts.each do |advert| %>
             <%= link_to "S\'inviter en tant que #{advert.tag}", project_adverts_projects_join_index_path(@project.id,advert.id), method: :post, class: "btn btn-primary mb-1" %>
           <% end %>
