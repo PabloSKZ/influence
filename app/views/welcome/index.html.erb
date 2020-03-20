@@ -16,8 +16,8 @@
   <p>Les meilleurs photographes, monteurs, maquilleurs et graphistes à portée de clic !</p>
   <hr class="my-4">
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Je suis Influenceur</a>
-    <a class="btn btn-secondary btn-lg" href="#" role="button">Je suis Freelance</a>
+    <%= link_to "Je suis Influenceur", new_user_registration_path(user_type:"influencer"), class: "btn btn-primary btn-lg" %>
+    <%= link_to "Je suis Freelance", new_user_registration_path(user_type:"freelance"), class: "btn btn-secondary btn-lg" %>
   </p>
 </div>
   <% if current_user != nil && current_user.user_type == "freelance" %>
