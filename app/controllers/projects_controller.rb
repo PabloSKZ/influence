@@ -34,9 +34,14 @@ class ProjectsController < ApplicationController
       end
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
   def update
+    puts params
       @project = Project.find(params[:id])
-    if @project.update(title: params[:title], description: params[:description], link_field: params[:link_field])
+    if @project.update(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field])
       redirect_to @project
     else
       flash[:notice] = "Votre projet a bien été modifié."
@@ -46,12 +51,11 @@ class ProjectsController < ApplicationController
 
   def destroy
     
-    @employment = AdvertsProjectsJoin.find_by(project_id:params[:project_id])
-    @employment.delete
+   
     @project = Project.find(params[:id])
-    @project.delete
-    if @project.save && @employment.save
+    @project.destroy
+    
       redirect_to root_path
-    end
+    
   end
 end
