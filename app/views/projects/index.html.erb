@@ -8,9 +8,8 @@
     <div class="card mb-5" style="width:20rem;">
       <h4 class="card-header bg-primary text-white"><%= project.title =%></h4>
       <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
-      <div class="card-body">
+      <div class="card-body text-center">
         <p class="card-text"><%= truncate(project.description.tr('[\"\"]',''), :length => 60)  =%></p>
-        <hr>
         <div>
           <%= link_to "En voir plus", project_path(project.id), class: "btn btn-primary card-link text-center" %>
         </div>
