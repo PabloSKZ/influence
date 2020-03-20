@@ -1,0 +1,13 @@
+<h1>Liste des projets auxquels vous participez :</h1>
+<div class="container">
+    <% current_user.adverts.each do |advert| %>
+    <ul class="list-group">
+        
+        <% advert.projects.each do |project| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center mb-1 d-flex justify-content-between">
+                <%= project.title %> <%= project.description %> <%= link_to "Détails du projet", project_path(project.id) %>
+            </li>
+        <% end %>
+    </ul>
+    <% end %>
+</div>
