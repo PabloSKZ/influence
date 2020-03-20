@@ -1,5 +1,4 @@
-<div class="container mt-5">
-<div class="card-body mt-5">
+<div class="container  bg-primary mt-4">
   <div class="card flex-row mb-5 " style="height:20rem;">
     <img style="width:30rem; height:20rem; ml-3"src="<%= @advert.picture %>" alt="">
     <div class="block d-flex" style="width:100%;">
@@ -23,6 +22,8 @@
           <h6 class="card-text mt-3"> Lien : <a href ="<%= @advert.link_field %>"><%= @advert.link_field %></a></h6>
         </div>
       </div>
+
+      
         <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:40%;">
           <% if current_user == nil %>
           <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
@@ -38,7 +39,12 @@
           <% end %>
         <% end %>
         <div>
+<<<<<<< HEAD
           <%= link_to 'Retourner à annonces', adverts_path, class: 'btn btn-primary mr-5', style: 'width:244px;' %>
+=======
+          <%= link_to 'Retourner à annonces', adverts_path, class: 'btn btn-primary views-projects', style: 'width:244px;' %>
+          </div>
+>>>>>>> dev
         </div>
         </div>
       </div>

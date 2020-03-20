@@ -1,10 +1,4 @@
-<nav class="login-form mt-5">
-  <div class="container">
-      <div class="row justify-content-center">
-          <div class="col-md-8">
-              <div class="card">
-                    <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier le projet</h4></div>
-                  <div class="card-body">
+
 <% if @errors%>
   <% @errors.messages.each do |message|%>
   <div class="alert alert-danger" role="alert">
@@ -13,37 +7,43 @@
     <% end%>
   <% end %>
   
-  <div class="form-group row justify-content-center">
-  <div class="col-md-8">
-  <%= form_tag url_for(action: 'update'), method: "patch" do %>
-  <%= label_tag 'Titre' %>
-  <%= text_field_tag 'title'%>
-  <br> <br>
-  </div>
-  </div>
-  <div class="form-group row justify-content-center">
-  <div class="col-md-8">
-  <%= label_tag 'Description' %>
-  <%= text_area_tag 'description' %>
-  <br><br>
-  </div>
-  </div>
-
-  <div class="form-group row justify-content-center">
-  <div class="col-md-8">
-  <%= label_tag 'Liens divers (Linkdin, CV, portfolio...)' %>
-  <%= text_area_tag 'link_field' %>
-  <br><br>
-  </div>
-  </div>
-  <div class="form-group row justify-content-center">
-  <%= submit_tag("Modifier le projet", class: "btn btn-primary text-center") %>
-
-  <% end %>
-  </div>
-  </div>
+  
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier un projet</h4></div>
+          <div class="card-body">
+            <%= form_for @project do |f| %>
+              <div class="form-group row">
+                <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
+                  <div class="col-md-6">
+                    <%= f.text_field :title, class: "form-control"%>
+                  </div>
+                </div>
+                <br> <br>
+                <div class="form-group row">
+                  <%= f.label 'Description', class:'col-md-4 col-form-label text-md-right'  %>
+                  <div class="col-md-6">
+                    <%= f.text_area :description, class: "form-control" %>
+                  </div>
+                </div>
+                <br> <br>
+                <div class="form-group row">
+                  <%= f.label 'Liens divers(Linkdin, CV, portfolio', class:'col-md-4 col-form-label text-md-right' %>
+                  <div class="col-md-6">
+                    <%= f.text_field :link_field, class: "form-control" %> 
+                  </div>
+                </div>
+                <br> <br>
+                <div class="col-md-6 offset-md-4">
+                  <%= f.submit "Sauvegarder", class: "btn btn-primary mx-5" %>
+                  <% end %>
+                </div>
+                                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
-</div>
-</div>
-</div>
-</nav>
