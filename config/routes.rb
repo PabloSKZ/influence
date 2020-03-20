@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'dashboard/show'
   root 'welcome#index'
   devise_for :users
   resources :adverts
+  resources :dashboard, only:[:show]
   resources :projects do
     resources :adverts_projects_join, only: [:create]
   end
