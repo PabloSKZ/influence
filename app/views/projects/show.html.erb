@@ -9,11 +9,11 @@
 <body>
   <div class='container' style="margin-top: 5rem;">
     <div class="card mb-5" style="width:80%; margin: auto;">
-      <h3 class="card-header"><%= @project.title =%></h3>
+      <h4 class="card-header bg-primary text-white text-center"><%= @project.title =%></h4>
       <img style="height: auto; width: 100%; display: block;" src="<%= @project.picture =%>" alt="Card image">
       <div class="card-body">
         <p class="card-text"><h3>Description du projet:</h3> <%= @project.description.tr('[\"\"]','') =%></p>
-        <p class="card-text"><h5>Liens:</h5> <%= @project.link_field.tr('[\"\"]','') =%></p>
+        <P class="card-text"><h5>Liens:</h5> <%= @project.link_field.tr('[\"\"]','') =%></p>
         <hr>
         
       </div>
