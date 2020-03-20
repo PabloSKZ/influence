@@ -1,0 +1,7 @@
+<% if current_user.user_type == 'freelance' %>
+    <%= render 'freelance_dashboard' %>
+<% elsif current_user.user_type == 'influencer' %>
+   <%= render 'influencer_dashboard' %>
+<% end %>
+<%= current_user.user_type %>
+<%= current_user.id %>
