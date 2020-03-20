@@ -10,11 +10,13 @@
       <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
       <div class="card-body">
         <p class="card-text"><%= truncate(project.description.tr('[\"\"]',''), :length => 60)  =%></p>
-        <%= link_to "En voir plus", project_path(project.id) %>
         <hr>
+        <div>
+          <%= link_to "En voir plus", project_path(project.id), class: "btn btn-primary card-link" %>
+        </div>
       </div>
     </div>
   </div>
   <% end %>
   </div>
-</div> 
+</div>
