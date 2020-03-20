@@ -1,6 +1,7 @@
 <div class="container mt-5">
+<div class="card-body mt-5">
   <div class="card flex-row mb-5 " style="height:20rem;">
-    <img style="width:22rem;height:20rem;"src="<%= @advert.picture %>" alt="">
+    <img style="width:30rem; height:20rem; ml-3"src="<%= @advert.picture %>" alt="">
     <div class="block d-flex" style="width:100%;">
       <div class="sub-block d-flex flex-column justify-content-between pl-4" style="width:70%;">
         <div class="card-block pt-4" style="width:60%;">
@@ -37,9 +38,10 @@
           <% end %>
         <% end %>
         <div>
-          <%= link_to 'Retourner à l\'index des annonces', adverts_path, class: 'btn btn-primary', style: 'width:244px;' %>
+          <%= link_to 'Retourner à annonces', adverts_path, class: 'btn btn-primary mr-5', style: 'width:244px;' %>
         </div>
         </div>
       </div>
   </div>
+</div>
 </div>
