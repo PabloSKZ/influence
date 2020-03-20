@@ -6,7 +6,7 @@
   <% @projects.each do |project| %>
   <div class="col-md-4  d-flex justify-content-around">
     <div class="card mb-5" style="width:20rem;">
-      <h3 class="card-header"><%= project.title =%></h3>
+      <h4 class="card-header bg-primary text-white"><%= project.title =%></h4>
       <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
       <div class="card-body">
         <p class="card-text"><%= truncate(project.description.tr('[\"\"]',''), :length => 60)  =%></p>
