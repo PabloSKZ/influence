@@ -31,7 +31,7 @@
       Se connecter
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to "J\'ai deja un compte", new_user_session_path, class: 'dropdown-item' %>
+      <%= link_to "J\'ai déjà un compte", new_user_session_path, class: 'dropdown-item' %>
       <%= link_to "S\'inscrire", new_user_registration_path, class: 'dropdown-item' %>
     </div>
   </div>
@@ -41,6 +41,7 @@
       Mon compte
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Mon dashboard", dashboard_path(current_user.id), class: 'dropdown-item' %>
       <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
     </div>
   </div>
