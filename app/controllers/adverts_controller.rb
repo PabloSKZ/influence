@@ -10,13 +10,12 @@ class AdvertsController < ApplicationController
 
   def create
     @advert = Advert.new(advert_params)
-
     if @advert.save
       flash[:notice] = "Votre annonce a bien été créé."
       redirect_to root_path
     else
       @errors = @advert.errors
-      render new_advert_path
+      render :new
     end
 
   end
@@ -32,7 +31,7 @@ class AdvertsController < ApplicationController
   def update
     @advert = Advert.find(params[:id])
     puts params
-    if @advert.update(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field],)
+    if @advert.update(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
       flash[:notice] = "Votre projet a bien été modifié."
       redirect_to @advert
     else
