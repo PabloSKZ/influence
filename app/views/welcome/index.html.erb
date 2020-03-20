@@ -13,7 +13,7 @@
   <p class="lead">Prêt à faire décoller ta carrière de Freelance ?</p>
   <hr class="my-4">
   <p class="lead">
-    <%= link_to "Accèder à mon Dashboard", dashboard_show_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Accèder à mon Dashboard", dashboard_path(current_user.id), class: "btn btn-primary btn-lg" %>
     <%= link_to "Créer une Annonce", new_advert_path, class: "btn btn-secondary btn-lg" %>
   </p>
     <% elsif current_user != nil && current_user.user_type == "influencer" %>
@@ -21,7 +21,7 @@
   <p class="lead">Prêt à faire décoller ta carrière d'Influenceur ?</p>
   <hr class="my-4">
   <p class="lead">
-    <%= link_to "Accèder à mon Dashboard", dashboard_show_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Accèder à mon Dashboard", dashboard_path(current_user.id), class: "btn btn-primary btn-lg" %>
     <%= link_to "Créer un Projet", new_project_path, class: "btn btn-secondary btn-lg" %>
   </p>
     <% end %>
