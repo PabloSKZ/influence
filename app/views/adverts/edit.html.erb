@@ -1,4 +1,4 @@
-  <% if @errors %>
+    <% if @errors %>
     <% @errors.messages.each do |message| %>
     <div class="alert alert-danger" role="alert">
     Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
@@ -11,7 +11,7 @@
           <div class="card my-4">
             <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier un profil</h4></div>
               <div class="card-body">
-                <%= form_for @advert do |f| %>
+                <%= form_with model: @advert do |f| %>
                   <div class="form-group row">
                     <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
                       <div class="col-md-6">
