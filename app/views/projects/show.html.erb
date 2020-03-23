@@ -24,8 +24,10 @@
               <%= link_to "S\'inviter en tant que #{advert.tag}", project_adverts_projects_join_index_path(advert.id,@project.id), method: :post, class: "btn btn-primary mb-1" %>
             <% end %>
           <% end %>
-        <% end %>
-        <%= link_to 'Retourner à des projets', projects_path, class: 'btn btn-primary' %>
+          <% if current_user.user_type == 'freelance' && curent_user.adverts.count == 0 %>
+            <% link_to "Créer votre première annonce !", new_advert_path, class: "btn -btn-primary" %>
+          <% end %>
+        <%= link_to 'Retourner aux projets', projects_path, class: 'btn btn-primary' %>
       </div>
     </div>  
 </div>

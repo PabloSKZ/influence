@@ -1,5 +1,10 @@
+<% if current_user.user_type == 'freelance' && curent_user.adverts.all.count == 0 %>
+    <% link_to "Créer votre première annonce !", new_advert_path, class: "btn -btn-primary" %>
+<% elsif current_user.user_type == 'influencer' && current_user.projects.all.count == 0 %>
+    <% link_to "Créer votre premier projet !", new_project_path, class: "btn -btn-primary" %>
+<% end %>
 <% if current_user.user_type == 'freelance' %>
     <%= render 'freelance_dashboard' %>
 <% elsif current_user.user_type == 'influencer' %>
-   <%= render 'influencer_dashboard' %>
+    <%= render 'influencer_dashboard' %>
 <% end %>
