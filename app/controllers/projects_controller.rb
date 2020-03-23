@@ -3,27 +3,27 @@ class ProjectsController < ApplicationController
     if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
-     end
+    elsif authorize! :read, @project
+    end
     @projects = Project.all
   end
 
   def show
+    @project = Project.find(params[:id])
+    authorize! :read, @project, :message => "Vous n'avez pas accès à ce projet."
      if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
      end
-    @project = Project.find(params[:id])
+    
     session[:id] = @project.id
   end
 
   def new
     @project = Project.new
-    puts params
-    puts "OH ZEBI FONCTIONNE LA NON"
   end
 
   def create
-    puts "$"*100
     @project = Project.new(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id)
       if @project.save
         flash[:notice] = "Votre projet a bien été créé."
@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-
-    redirect_to root_path
+    flash[:notice] = "Votre projet a bien été supprimé."
+    redirect_to dashboard_path(params[:id])
   end
 end
