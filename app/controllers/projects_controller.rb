@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id)
       if @project.save
         flash[:notice] = "Votre projet a bien été créé."
-        redirect_to root_path
+        redirect_to project_path(@project)
       else
         @errors = @project.errors
         render new_project_path

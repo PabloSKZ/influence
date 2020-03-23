@@ -13,7 +13,7 @@ class AdvertsController < ApplicationController
     @advert.user_id = current_user.id
     if @advert.save
       flash[:notice] = "Votre annonce a bien été créé."
-      redirect_to root_path
+      redirect_to advert_path(@advert)
     else
       @errors = @advert.errors
       render :new
