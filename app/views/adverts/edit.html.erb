@@ -9,23 +9,16 @@
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card my-4">
-            <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier un profil</h4></div>
+            <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier une annonce</h4></div>
               <div class="card-body">
                 <%= form_with model: @advert do |f| %>
                   <div class="form-group row">
-                    <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
-                      <div class="col-md-6">
-                        <%= f.text_field :title, class: "form-control"%>
-                      </div>
+                    <%= f.label 'Métier', class:'col-md-4 col-form-label text-md-right'  %>
+                    <div class="col-md-6">
+                      <%= f.select :tag, options_for_select(['Photographe','Graphiste','Maquilleur','Monteur']), {}, {id:"custom_dropdown", class: "form-control"} %>
                     </div>
-                    <br> <br>
-                    <div class="form-group row">
-                      <%= f.label 'Métier', class:'col-md-4 col-form-label text-md-right'  %>
-                      <div class="col-md-6">
-                        <%= f.text_field :tag, class: "form-control" %>
-                      </div>
-                    </div>
-                    <br> <br>
+                  </div>
+                  <br> <br>
                     <div class="form-group row">
                       <%= f.label 'Description', class:'col-md-4 col-form-label text-md-right'  %>
                       <div class="col-md-6">
@@ -36,7 +29,7 @@
                     <div class="form-group row">
                       <%= f.label 'Taux journalier', class:'col-md-4 col-form-label text-md-right'  %>
                       <div class="col-md-6">
-                        <%= f.number_field :price, class: "form-control" %>
+                        <%= f.number_field :price, class: "form-control", step: "10", min: 10 %>
                       </div>
                     </div>
                     <br> <br>
