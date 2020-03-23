@@ -9,10 +9,10 @@
         <% current_user.projects.each do |project| %>
                 <li class="list-group-item d-flex mb-1 project-list font-weight-bold">
                     <div class="mr-auto p-2"><%= project.title %></div>
-                    <div class=" d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary btn-sm text-light"><%= link_to "Détails", project_path(project.id) %></button>
+                    <div class="d-flex justify-content-end", style="text-decoration: none">
+                    <button type="button" class="btn btn-primary btn-sm"><%= link_to "Détails", project_path(project.id) %></button>
                     <button type="button" class="btn btn-secondary btn-sm"><%= link_to "Supprimer", project_path(project.id), method: :delete  %></button>
-                    <button type="button" class="btn btn-primary btn-sm text-white"><%= link_to 'Modifier', edit_project_path(project.id) %></button>
+                    <button type="button" class="btn btn-primary btn-sm"><%= link_to 'Modifier', edit_project_path(project.id) %></button>
                 </div>
                 </li>
             </ul>
