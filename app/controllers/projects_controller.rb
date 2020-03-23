@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :my_sanitizer
   def index
-    puts can? :create, Project
     @projects = Project.order(created_at: :desc)
     if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
@@ -53,5 +52,9 @@ class ProjectsController < ApplicationController
     @project.destroy
     flash[:notice] = "Votre projet a bien été supprimé."
     redirect_to dashboard_path(params[:id])
+  end
+
+  def my_sanitizer
+    
   end
 end

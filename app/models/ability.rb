@@ -32,11 +32,17 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     alias_action :create, :read, :update, :destroy, to: :crud
     alias_action :read, :update, :destroy, to: :rud
-    can :read, Project  # start by defining rules for all users, also not logged ones
-    return unless user.present?
-    if user.user_type == 'influencer'
-      can :create, Project
-      can :rud, Project, user_id: user.id # if the user is logged in can manage it's own projects
+    
+    if user
+      if user.user_type == 'influencer'
+        can :create, Project
+        can :rud, Project, user_id: user.id #if the user is logged in can manage it's own projects
+      elsif user.user_type == 'freelance'
+        can :create, Advert
+        can :rud, Advert, user_id: user.id
+        can :read, Project
+      end
+    else
     end
   end
 end
