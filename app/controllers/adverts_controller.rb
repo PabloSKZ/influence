@@ -9,10 +9,11 @@ class AdvertsController < ApplicationController
   end
 
   def create
-    @advert = Advert.new(advert_params)
+    @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+    @advert.user_id = current_user.id
     if @advert.save
       flash[:notice] = "Votre annonce a bien été créé."
-      redirect_to root_path
+      redirect_to advert_path(@advert)
     else
       @errors = @advert.errors
       render :new

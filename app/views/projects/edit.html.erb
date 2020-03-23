@@ -14,7 +14,7 @@
       <div class="card">
         <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier un projet</h4></div>
           <div class="card-body">
-            <%= form_for @project do |f| %>
+            <%= form_with model: @project do |f| %>
               <div class="form-group row">
                 <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
                   <div class="col-md-6">
