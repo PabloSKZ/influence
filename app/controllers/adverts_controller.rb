@@ -1,7 +1,7 @@
 class AdvertsController < ApplicationController
 
   def index
-    @adverts = Advert.all
+    @adverts = Advert.order(created_at: :desc)
   end
 
   def new
