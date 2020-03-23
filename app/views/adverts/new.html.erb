@@ -12,17 +12,10 @@
             <div class="card-header bg-primary"><h4 class="text-white text-center">Créer un profil</h4></div>
               <div class="card-body">
                 <%= form_with model: @advert do |f| %>
-                  <div class="form-group row">
-                    <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
-                      <div class="col-md-6">
-                        <%= f.text_field :title, class: "form-control"%>
-                      </div>
-                    </div>
-                    <br> <br>
                     <div class="form-group row">
                       <%= f.label 'Métier', class:'col-md-4 col-form-label text-md-right'  %>
                       <div class="col-md-6">
-                        <%= f.text_field :tag, class: "form-control" %>
+                        <%= f.select :tag, options_for_select(['Photographe','Graphiste','Maquilleur','Monteur']), {}, {class: "form-control"} %>
                       </div>
                     </div>
                     <br> <br>
