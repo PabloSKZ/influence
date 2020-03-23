@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :dashboard, only:[:show]
   resources :projects do
-    resources :adverts_projects_join, only: [:create]
+    resources :adverts_projects_join, only: [:create,:destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

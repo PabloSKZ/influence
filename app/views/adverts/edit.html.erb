@@ -35,8 +35,10 @@
                     <br> <br>
                     <div class="col-md-6 offset-md-4">
                       <%= f.submit "Sauvegarder", class: "btn btn-primary mx-5" %>
-                      <% end %>
-                    </div>          
+                      <% end %>     
+                      <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-danger m-2" %>
+                    </div>    
+                     
                   </div>
                 </div>
               </div>
