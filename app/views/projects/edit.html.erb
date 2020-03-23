@@ -35,17 +35,12 @@
                     <%= f.text_field :link_field, class: "form-control" %> 
                   </div>
                 </div>
-                <br> <br>
-                <div class="col-md-6 offset-md-4">
-                  <%= f.submit "Sauvegarder", class: "btn btn-primary mx-5" %>
+                <div class="col-md-6 offset-md-4 d-flex  mr-auto text-center">
+                  <%= f.submit "Sauvegarder", class: "btn btn-primary mr-auto" %>
                   <% end %>
-<<<<<<< HEAD
-                  <%= link_to "Supprimer le projet", project_path(@project.id), method: :delete, class: "btn btn-outline-danger m-2" %>
+                  <%= link_to "Supprimer", project_path(@project.id), method: :delete, class: "btn btn-outline-primary mr-auto" %>
                 </div>
-                                  
-=======
-                </div>              
->>>>>>> dashboard-views
+                <br>              
               </div>
             </div>
           </div>
