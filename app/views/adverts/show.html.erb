@@ -29,19 +29,26 @@
           <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
           <% elsif current_user != nil && current_user.id == @advert.user_id %>
           <div>
-            <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary" %>
-            <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-danger mx-2" %>
+            <%= link_to 'Trouver un projet', projects_path, class: 'btn btn-primary', style: 'width:244px;' %>
+            <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-secondary" %>
           </div>
         <% elsif current_user != nil && current_user.user_type == 'influencer' %>
-          <% current_user.projects.each do |project| %>
-            <div>
-              <%= link_to "Inviter sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "btn btn-primary mb-2" %>
-            </div>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Inviter <%= @advert.user.first_name %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% current_user.projects.each do |project| %>
+              <%= link_to "Sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "dropdown-item" %>
           <% end %>
         <% end %>
+<<<<<<< HEAD
         <div>
           <%= link_to 'Retourner à annonces', adverts_path, class: 'btn btn-primary views-projects', style: 'width:244px;' %>
           </div>
+=======
+      </div>
+>>>>>>> e5e108607c51cf28e929fb981c873371762eba73
         </div>
         </div>
       </div>

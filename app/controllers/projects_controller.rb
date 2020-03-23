@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
      end
-    @projects = Project.all
+    @projects = Project.order(created_at: :desc)
   end
 
   def show
