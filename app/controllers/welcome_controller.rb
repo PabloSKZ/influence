@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @projects = Project.all
-    @adverts = Advert.all
+    @projects = Project.order(created_at: :desc)
+    @adverts = Advert.order(created_at: :desc)
   end
 end
