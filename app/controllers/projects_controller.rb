@@ -1,21 +1,20 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource
   def index
+    puts can? :create, Project
+    @projects = Project.order(created_at: :desc)
     if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
-    elsif authorize! :read, @project
     end
-    @projects = Project.order(created_at: :desc)
   end
 
   def show
     @project = Project.find(params[:id])
-    authorize! :read, @project, :message => "Vous n'avez pas accès à ce projet."
      if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
      end
-    
     session[:id] = @project.id
   end
 
