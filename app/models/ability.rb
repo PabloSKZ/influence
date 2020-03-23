@@ -36,7 +36,7 @@ class Ability
     return unless user.present?
     if user.user_type == 'influencer'
       can :create, Project
-      can :rud, Project, user_id: user.id # if the user is logged in can manage it's own posts
+      can :rud, Project, user_id: user.id # if the user is logged in can manage it's own projects
     end
   end
 end
