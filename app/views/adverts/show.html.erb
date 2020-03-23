@@ -40,9 +40,6 @@
         <div>
           <%= link_to 'Retourner à l\'index des annonces', adverts_path, class: 'btn btn-primary', style: 'width:244px;' %>
         </div>
-        <% if current_user.user_type == 'influencer' && curent_user.projects.count == 0 %>
-              <% link_to "Créer votre premier projet !", new_project_path, class: "btn -btn-primary" %>
-            <% end %>
         </div>
       </div>
   </div>
