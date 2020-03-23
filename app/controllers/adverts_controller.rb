@@ -1,5 +1,5 @@
 class AdvertsController < ApplicationController
-
+  load_and_authorize_resource
   def index
     @adverts = Advert.order(created_at: :desc)
   end

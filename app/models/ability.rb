@@ -37,6 +37,7 @@ class Ability
       if user.user_type == 'influencer'
         can :create, Project
         can :rud, Project, user_id: user.id #if the user is logged in can manage it's own projects
+        can :read, Advert
       elsif user.user_type == 'freelance'
         can :create, Advert
         can :rud, Advert, user_id: user.id
