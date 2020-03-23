@@ -39,6 +39,7 @@
                 <div class="col-md-6 offset-md-4">
                   <%= f.submit "Sauvegarder", class: "btn btn-primary mx-5" %>
                   <% end %>
+                  <%= link_to "Supprimer le projet", project_path(@project.id), method: :delete, class: "btn btn-outline-danger m-2" %>
                 </div>
                                   
               </div>
