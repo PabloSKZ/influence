@@ -11,6 +11,8 @@ class AdvertsController < ApplicationController
   def create
     @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
     @advert.user_id = current_user.id
+    @advert.picture = "https://i.stack.imgur.com/l60Hf.png"
+    
     if @advert.save
       flash[:notice] = "Votre annonce a bien été créé."
       redirect_to advert_path(@advert)
@@ -32,7 +34,7 @@ class AdvertsController < ApplicationController
   def update
     @advert = Advert.find(params[:id])
     puts params
-    if @advert.update(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+    if @advert.update(description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
       flash[:notice] = "Votre projet a bien été modifié."
       redirect_to @advert
     else

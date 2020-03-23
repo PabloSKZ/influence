@@ -18,8 +18,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    puts params
-    puts "OH ZEBI FONCTIONNE LA NON"
   end
 
   def create

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :adverts
+  resources :adverts do
+    resources :avatars, only: [:create]
+  end
   resources :dashboard, only:[:show]
   resources :projects do
     resources :adverts_projects_join, only: [:create]
