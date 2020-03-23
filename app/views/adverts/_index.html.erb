@@ -5,7 +5,12 @@
     <% @adverts.each do |advert|%>
       <div class="col-xs-12 col-md-6 col-lg-4">
         <div class="card mb-3">
-        <img style="height: 200px; width: 100%; display: block;" src="<%= advert.picture %>" alt="Card image">
+        <% if advert.avatar.attached? %>
+          <%= image_tag advert.avatar, alt:'avatar',style:"height: 200px; width: 100%; display: block;"%>
+        <% else %>
+          <img style="height: 200px; width: 100%; display: block;" src="<%= advert.picture %>" alt="Card image">
+        <% end %>
+        
         <div class="card-body">
           <h4> <%= advert.user.first_name %> <%= advert.user.last_name %></h4>
           <p class="card-text"><%=advert.tag %></p>

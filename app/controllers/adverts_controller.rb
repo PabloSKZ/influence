@@ -33,8 +33,10 @@ class AdvertsController < ApplicationController
 
   def update
     @advert = Advert.find(params[:id])
-    puts params
     if @advert.update(description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+      if !params[:advert][:avatar].nil?
+        @advert.avatar.attach(params[:advert][:avatar])
+      end
       flash[:notice] = "Votre projet a bien été modifié."
       redirect_to @advert
     else
