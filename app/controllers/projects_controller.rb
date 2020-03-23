@@ -40,6 +40,9 @@ class ProjectsController < ApplicationController
     puts params
       @project = Project.find(params[:id])
     if @project.update(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field])
+      if !params[:project][:cover].nil?
+        @project.cover.attach(params[:project][:cover])
+      end
       redirect_to @project
     else
       flash[:notice] = "Votre projet a bien été modifié."

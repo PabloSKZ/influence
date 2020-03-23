@@ -6,7 +6,11 @@
   <div class="col-md-4  d-flex justify-content-around">
     <div class="card mb-5" style="width:20rem;">
       <h4 class="card-header bg-primary text-white"><%= project.title =%></h4>
-      <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
+      <% if project.cover.attached? %>
+        <%= image_tag project.cover, alt: 'cover',style:"height: auto; width: 100%; display: block;"%>
+      <% else %>
+        <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
+      <% end %>
       <div class="card-body text-center">
         <p class="card-text"><%= truncate(project.description.tr('[\"\"]',''), :length => 60)  =%></p>
         <div>
