@@ -14,9 +14,10 @@
         <ul class="list-group">
           <% @project.adverts.each do |advert| %>
             <li class="list-group-item">
-              <%= "#{advert.user.first_name}, #{advert.tag}" %>
-              <%= link_to "Voir le profil", advert_path(advert.id), class: "btn btn-info btn-sm mx-2" %> |
-              <%= link_to "Rejeter l'invitation", project_adverts_projects_join_path(@project.id,advert.id), method: :delete, class: "btn btn-danger btn-sm mx-2" %>
+              <%= link_to "#{advert.user.first_name}, #{advert.tag}", advert_path(advert.id) %>
+              <% if (current_user != nil && current_user.id == @project.user_id) || (current_user != nil && current_user.id == advert.user_id) %>
+                <%= link_to "Désinscrire du projet", project_adverts_projects_join_path(@project.id,advert.id), method: :delete, class: "btn btn-danger btn-sm" %>
+              <% end %>
             </li>
           <% end %>
         </ul>
