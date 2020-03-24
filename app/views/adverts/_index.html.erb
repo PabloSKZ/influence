@@ -1,5 +1,6 @@
-<h1 class="text-center" style="margin-top: 2rem;">Freelances disponibles</h1>
 
+<h1 class="text-center" style="margin-top: 2rem;">Freelances disponibles</h1>
+<br>
 <div class="container">
 
 <div class="border p-3">
@@ -24,21 +25,20 @@
   </div>
   <div class="row mt-4">
     <% @adverts.each do |advert|%>
-      <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="card mb-3">
+      <div class="col-md-4 d-flex text-center">
+      <div class="card mb-4" style="width:20rem;">
+      <h4 class="card-header bg-primary text-white"><%= advert.user.first_name %> <%= advert.user.last_name %></h4>
         <% if advert.avatar.attached? %>
-          <%= image_tag advert.avatar, alt:'avatar',style:"height: 200px; width: 100%; display: block;"%>
-        <% else %>
-          <img style="height: 200px; width: 100%; display: block;" src="<%= advert.picture %>" alt="Card image">
+          <%= image_tag advert.avatar, alt:'avatar',style:"height: auto; width: 100%; display: block;"%>
+        <% else %> 
+          <img style="height: auto; width: 100%; display: block;" src="<%= advert.picture  =%>" alt="Card image">
         <% end %>
-        <div class="card-body">
-          <h4> <%= advert.user.first_name %> <%= advert.user.last_name %></h4>
-          <p class="card-text"><%=advert.tag %></p>
-          <div class="price-container" style="display:flex;align-items:center;width:52%;height:5vh;border:1px solid lightgrey;border-radius:20px;padding-left:10px;">
-            <div class="circle bg-primary" style="width:10px;height:10px;border:1px solid black;border-radius:90px;" ></div>
-            <p style="margin-bottom:0;"><span class="font-weight-bold ml-2"><%=advert.price %>€</span><small class="text-muted">/ jour indicatif</small></p>
+        <div class="card-body text-center" style="border-top:1px solid lightgrey;">
+          <h5 class="card-text"><%=advert.tag %></h5>
+          <div class="card-body text-center">
+          <span class="badge badge-pill badge-primary"><%=advert.price %>€ / jour indicatif</span>
           </div>
-          <a href="<%= advert_path(advert.id) %>" class="btn btn-primary mt-4">Profil complet</a>
+          <a href="<%= advert_path(advert.id) %>" class="btn btn-primary">Profil complet</a>
         </div>
       </div>  
     </div>
