@@ -1,7 +1,7 @@
 <div class="container mt-4">
 <div class="row justify-content-center">
-<div class="col-md-8">
-<div class="card mb-4">
+<div class="col-md-6">
+<div class="card ">
 <h4 class="card-header bg-primary text-white text-center"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h4>
     <% if @advert.avatar.attached? %>
     <div class="card-body d-flex flex-row bd-highlight mb-3">
@@ -13,17 +13,20 @@
     </div>
     
   
-    <div class="p-2 bd-highlight">
+   
         
          
           <div class="p-2 bd-highlight mt-4">
           <h5 class="card-text  mr-5 ml-4 mt-4"><%= @advert.tag %></h5>
-          <h6 class="card-text  mr-5 ml-4 mt-4">Description : </h6>
-          <p class="card-text  mr-5 ml-4 mt-4"><%= @advert.description %></p>
-        </div>
+          </div>
+        
+      
         </div>
       
         <div class="col-md-8 mx-auto">
+        <h6 class="card-text  mr-5 ml-4 mt-4">Description : </h6>
+        <p class="card-text  mr-5 ml-4 mt-4"><%= @advert.description %></p>
+      </div>
           <div class="price-container bg-primary" style="display:flex;align-items:center;width:35%;height:4rem;border-radius:10px;padding-left:12px;">
             <div class="circle bg-secondary" style="width:5px;height:40px;border:1px solid black;border-radius:7px;" ></div>
             <div class="text-white ml-3">
