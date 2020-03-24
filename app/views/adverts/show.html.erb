@@ -3,7 +3,7 @@
     <% if @advert.avatar.attached? %>
       <%= image_tag @advert.avatar, alt: 'avatar',style:"width:22rem;height:20rem;"%>
     <% else %>
-      <img style="width:22rem;height:20rem;"src="<%= @advert.picture %>" alt="">
+      <img style="height: auto; width: 100%;" src="<%= @advert.picture %>" alt="">
     <% end %>
     
     <div class="block d-flex" style="width:100%;">
