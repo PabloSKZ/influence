@@ -5,7 +5,7 @@
   <div class="row">
     <% @adverts.each do |advert|%>
       <div class="col-md-4 d-flex text-center">
-      <div class="card mb-5" style="width:20rem;">
+      <div class="card mb-4" style="width:20rem;">
       <h4 class="card-header bg-primary text-white"><%= advert.user.first_name %> <%= advert.user.last_name %></h4>
         <% if advert.avatar.attached? %>
           <%= image_tag advert.avatar, alt:'avatar',style:"height: auto; width: 100%; display: block;"%>
