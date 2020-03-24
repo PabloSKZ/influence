@@ -2,7 +2,29 @@
 <h1 class="text-center" style="margin-top: 2rem;">Freelances disponibles</h1>
 <br>
 <div class="container">
-  <div class="row">
+
+<div class="border p-3">
+  <%= search_form_for @q do |f| %>
+  <div class = "d-flex justify-content-between align-items-center">
+    <div class="block">
+      <%= f.label :tag_eq,  "Filtrer par Métier"%>
+      <%= f.select :tag_eq, options_for_select([['Photographe','Photographe'],['Graphiste','Graphiste'],['Maquilleur','Maquilleur'],['Monteur','Monteur']]), {:include_blank => "Tout afficher"}, {id:"custom_dropdown", class: "form-control"} %>
+    </div>
+    <div class="block">
+      <%= f.label :price_gteq,  "Prix entre" %>
+      <%= f.number_field :price_gteq, min:0, step:10 %>
+
+      <%= f.label :price_lteq,  "et" %>
+      <%= f.number_field :price_lteq, min:10, step:10%>
+    </div>
+    <div class="submit">
+      <%= link_to "Clear", request.path, class: "btn btn-default" %>
+      <%= f.submit "Rechercher", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+  </div>
+  <div class="row mt-4">
     <% @adverts.each do |advert|%>
       <div class="col-md-4 d-flex text-center">
       <div class="card mb-4" style="width:20rem;">
