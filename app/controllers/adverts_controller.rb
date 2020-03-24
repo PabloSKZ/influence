@@ -1,7 +1,13 @@
 class AdvertsController < ApplicationController
   load_and_authorize_resource param_method: :my_sanitizer
+
   def index
-    @adverts = Advert.order(created_at: :desc)
+    @search = Advert.search(params[:q])
+    @adverts = @search.result
+
+    # if params[:q].blank?
+    #   @adverts = Advert.order(created_at: :desc)
+    # end
   end
 
   def new
