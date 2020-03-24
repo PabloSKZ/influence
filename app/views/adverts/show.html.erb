@@ -1,22 +1,20 @@
-<div class="container mt-5">
-  <div class="card flex-row mb-5 " style="height:20rem;">
+<div class="container mt-4">
+<div class="row justify-content-center">
+<div class="col-md-8">
+<div class="card mb-4">
+<h4 class="card-header bg-primary text-white"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h4>
     <% if @advert.avatar.attached? %>
-      <%= image_tag @advert.avatar, alt: 'avatar',style:"width:22rem;height:20rem;"%>
+    <div class="card-body">
+      <%= image_tag @advert.avatar, alt: 'avatar',style:"width:15rem; height:15rem; d-flex"%>
     <% else %>
-      <img style="width:22rem;height:20rem;"src="<%= @advert.picture %>" alt="">
+      <img style="height: auto; width: 100%; d-flex" src="<%= @advert.picture %>" alt="">
     <% end %>
-    
-    <div class="block d-flex" style="width:100%;">
-      <div class="sub-block d-flex flex-column justify-content-between pl-4" style="width:70%;">
-        <div class="card-block pt-4" style="width:60%;">
-          <h3 class="card-title"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h3>
-          <h6 class="card-text"><%= @advert.tag %></h6>
-        </div>
-        <div>
+    </div>
+   
+          <h5 class="card-text text-center"><%= @advert.tag %></h5>
         <p>Description : </p>
-          <p class="card-text"><%= @advert.description %></p>
+          <p class="card-text text-cernter"><%= @advert.description %></p>
         </div>
-        <div class="card-block pb-2">
           <div class="price-container bg-primary" style="display:flex;align-items:center;width:35%;height:4rem;border-radius:10px;padding-left:12px;">
             <div class="circle bg-secondary" style="width:5px;height:40px;border:1px solid black;border-radius:7px;" ></div>
             <div class="text-white ml-3">
@@ -56,7 +54,7 @@
       </div>
   </div>
 </div>
+</div>
 
 
 
-   
