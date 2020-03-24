@@ -1,7 +1,7 @@
 class AdvertsProjectsJoinController < ApplicationController
     def create
         puts params
-        @ad_pro_join = AdvertsProjectsJoin.create(project_id: params[:format], advert_id: params[:project_id])
+        @ad_pro_join = AdvertsProjectsJoin.create(project_id: params[:format], advert_id: params[:project_id],status:"pending")
         redirect_to root_path
     end
 
