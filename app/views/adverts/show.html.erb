@@ -2,19 +2,28 @@
 <div class="row justify-content-center">
 <div class="col-md-8">
 <div class="card mb-4">
-<h4 class="card-header bg-primary text-white"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h4>
+<h4 class="card-header bg-primary text-white text-center"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h4>
     <% if @advert.avatar.attached? %>
-    <div class="card-body">
+    <div class="card-body d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight">
       <%= image_tag @advert.avatar, alt: 'avatar',style:"width:15rem; height:15rem; d-flex"%>
     <% else %>
       <img style="height: auto; width: 100%; d-flex" src="<%= @advert.picture %>" alt="">
     <% end %>
     </div>
-   
-          <h5 class="card-text text-center"><%= @advert.tag %></h5>
-        <p>Description : </p>
-          <p class="card-text text-cernter"><%= @advert.description %></p>
+    
+  
+    <div class="p-2 bd-highlight">
+        
+         
+          <div class="p-2 bd-highlight mt-4">
+          <h5 class="card-text  mr-5 ml-4 mt-4"><%= @advert.tag %></h5>
+          <h6 class="card-text  mr-5 ml-4 mt-4">Description : </h6>
+          <p class="card-text  mr-5 ml-4 mt-4"><%= @advert.description %></p>
         </div>
+        </div>
+      
+        <div class="col-md-8 mx-auto">
           <div class="price-container bg-primary" style="display:flex;align-items:center;width:35%;height:4rem;border-radius:10px;padding-left:12px;">
             <div class="circle bg-secondary" style="width:5px;height:40px;border:1px solid black;border-radius:7px;" ></div>
             <div class="text-white ml-3">
@@ -25,11 +34,14 @@
           <h6 class="card-text mt-3"> Lien : <a href ="<%= @advert.link_field %>"><%= @advert.link_field %></a></h6>
         </div>
       </div>
+      <div class="col-md-8 mx-auto">
         <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:40%;">
           <% if current_user == nil %>
           <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
           <% elsif current_user != nil && current_user.id == @advert.user_id %>
           <div>
+          <div>
+          <div class="col-md-8 mx-auto">
             <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary" %>
             <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-danger mx-2" %>
           </div>
@@ -56,5 +68,5 @@
 </div>
 </div>
 
-
+</div>
 
