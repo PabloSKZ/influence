@@ -9,8 +9,9 @@
     <% current_user.adverts.each do |advert| %>
     <ul class="list-group">
         <% advert.projects.each do |project| %>
-            <li class="list-group-item d-flex justify-content-between align-items-center mb-1 d-flex justify-content-between">
-                <%= project.title %><%= link_to "Détails du projet", project_path(project.id) %>
+            <li class="list-group-item  project-list d-flex justify-content-between align-items-center mb-1 font-weight-bold">
+                <%= project.title %>
+                <%= link_to "Détails", project_path(project.id), :class => "btn btn-primary btn-sm" %>
             </li>
         <% end %>
     </ul>
@@ -26,11 +27,15 @@
           <div class="card-header bg-primary"><h5 class="text-white text-center">Liste de vos annonces :</h5></div>
         <div class="card-body">
         <ul class="list-group">
-
     <% current_user.adverts.each do |advert| %>
     <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center mb-1 d-flex justify-content-between">
-            <%= advert.tag %> <%= advert.title %> <%= advert.description %> <%= link_to "Détails de l'annonce", advert_path(advert.id) %> <%= link_to "Modifier l'annonce", edit_advert_path(advert.id) %> <%= link_to "Supprimer l'annonce", advert_path(advert.id), method: :delete %>
+        <li class="list-group-item  project-list d-flex justify-content-between align-items-center mb-1 font-weight-bold">
+            <%= advert.tag %> <%= advert.title %> 
+            <div class=" justify-content-end", style="text-decoration: none">
+             <%= link_to "Détails", advert_path(advert.id), :class => "btn btn-primary btn-sm" %> 
+            <%= link_to "Modifier", edit_advert_path(advert.id), :class => "btn btn-primary btn-sm"  %> 
+            <%= link_to "Supprimer", advert_path(advert.id), method: :delete, :class => "btn btn-primary btn-sm"  %>
+            </div>
         </li>
     </ul>
     <% end %>
