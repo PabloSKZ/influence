@@ -1,8 +1,8 @@
     <% if @errors %>
-    <% @errors.messages.each do |message| %>
-    <div class="alert alert-danger" role="alert">
-    Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
-    </div>
+      <% @errors.messages.each do |message| %>
+        <div class="alert alert-danger" role="alert">
+          Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
+        </div>
       <% end %>
     <% end %>
     <div class="container">
