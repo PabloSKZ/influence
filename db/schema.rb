@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_113458) do
     t.text "description"
     t.string "picture"
     t.string "link_field"
-    t.string "price"
+    t.integer "price"
     t.string "tag"
     t.bigint "user_id"
     t.datetime "created_at", null: false

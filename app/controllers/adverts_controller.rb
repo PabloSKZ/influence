@@ -2,7 +2,7 @@ class AdvertsController < ApplicationController
   load_and_authorize_resource param_method: :my_sanitizer
 
   def index
-    @search = Advert.search(params[:q])
+    @search = Advert.ransack(params[:q])
     @adverts = @search.result
 
     # if params[:q].blank?
