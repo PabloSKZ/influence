@@ -15,8 +15,21 @@
         <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier un projet</h4></div>
           <div class="card-body">
             <%= form_with model: @project do |f| %>
-              <div class="form-group row">
-                <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
+              <div class="form-group row d-flex flex-column align-items-center">
+                <div>
+                  <% if @project.cover.attached? %>
+                    <%= image_tag @project.cover.variant(resize: "120x120!") %>
+                  <% else %>
+                    <%= image_tag @project.picture, height: 240, width:"100%" %>
+                  <% end %>
+                  </div>
+                  <div>
+                    <%= f.file_field :cover %>
+                  </div>
+                </div>
+                <br> <br>
+                <div class="form-group row">
+                  <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
                   <div class="col-md-6">
                     <%= f.text_field :title, class: "form-control"%>
                   </div>
