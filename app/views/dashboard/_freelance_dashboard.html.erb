@@ -1,6 +1,12 @@
+
 <br>
 <div class="container">
-    <h2>Liste des projets auxquels vous participez :</h2>
+<div class="row justify-content-center">
+<div class="col-md-8">
+    <div class="card">
+          <div class="card-header bg-primary"><h4 class="text-white text-center">Liste des projets vous participez :</h4></div>
+        <div class="card-body">
+        <ul class="list-group">
     <% current_user.adverts.each do |advert| %>
     <ul class="list-group">
         <% advert.projects.each do |project| %>
@@ -20,3 +26,10 @@
     </ul>
     <% end %>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
