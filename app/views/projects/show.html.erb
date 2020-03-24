@@ -32,17 +32,20 @@
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               S'inviter sur le projet 
             </button>
-            <% current_user.adverts.each do |advert| %>
-              <% if !(@project.adverts.include?(advert))%>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to "En tant que #{advert.tag}", project_adverts_projects_join_index_path(advert.id,@project.id), method: :post, class: "dropdown-item" %>
-                </div>
-              <% else %>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to "Créer une annonce", new_advert_path, class: "dropdown-item" %>
-                </div>
-              <% end %>
-            <% end %>  
+
+            <% if current_user.adverts[0] == nil %>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "Créer une annonce", new_advert_path, class: "dropdown-item" %>
+              </div>
+            <% else %>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% current_user.adverts.each do |advert| %>
+                <% if !(@project.adverts.include?(advert))%>
+                    <%= link_to "En tant que #{advert.tag}", project_adverts_projects_join_index_path(advert.id,@project.id), method: :post, class: "dropdown-item" %>
+                  <% end %>  
+              <% end %>  
+            </div>
+            <% end %>
             <%= link_to 'Retourner aux projets', projects_path, class: 'btn btn-primary' %>
         <% end %>
       </div>

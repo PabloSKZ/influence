@@ -6,6 +6,12 @@
           <div class="card-header bg-primary"><h4 class="text-white text-center">Liste de vos projets :</h4></div>
         <div class="card-body">
         <ul class="list-group">
+            <% if current_user.projects[0] == nil %>
+            <li class="list-group-item d-flex mb-1 project-list font-weight-bold">
+                <div class="mr-auto p-2">Vous n'avez pas de projets ! </div>
+                <div class=" justify-content-end", style="text-decoration: none"><%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %></div>
+            </li>
+            <% end %>
         <% current_user.projects.each do |project| %>
                 <li class="list-group-item d-flex mb-1 project-list font-weight-bold">
                     <div class="mr-auto p-2"><%= project.title %></div>
