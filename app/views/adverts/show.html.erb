@@ -10,22 +10,19 @@
       <div class="sub-block d-flex flex-column justify-content-between pl-4" style="width:70%;">
         <div class="card-block pt-4" style="width:100%;">
           <h3 class="card-title"><%= @advert.user.first_name %> <%= @advert.user.last_name %></h3>
-          <div class="card-body">
+          
           <h5 class="card-text"><%= @advert.tag %></h5>
-        </div>
+        
         <div>
-        <div class="card-body">
+        
         <p>Description : </p>
         <p class="card-text"><%= @advert.description %></p>
-        </div>
         
-        <div class="card-body">
-        <span class="badge badge-pill badge-primary"><%=@advert.price %>€ / jour indicatif</span>
-        </div>
+        <div>
        
-          </div>
-          <div class="card-body font-weight-bold">
-          <p class="card-text mt-3"> Lien : <a href ="<%= @advert.link_field %>"><%= @advert.link_field %></a></p>
+        <span class="badge badge-pill badge-primary"><%=@advert.price %>€ / jour indicatif</span>
+        <div>
+          <p class="card-text mt-3 font-weight-bold"> Lien : <a href ="<%= @advert.link_field %>"><%= @advert.link_field %></a></p>
           </div>
         </div>
       </div>
