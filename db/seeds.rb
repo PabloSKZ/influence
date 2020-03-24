@@ -64,7 +64,7 @@ tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
     Advert.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
-        picture: "https://i.stack.imgur.com/l60Hf.png",
+        picture: "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg",
         user_id: User.where(user_type:"freelance").sample.id,
         link_field: "http://www.twitter.com",
         price: rand(10...250),
