@@ -8,7 +8,7 @@
   <div class = "d-flex justify-content-between align-items-center">
     <div class="block">
       <%= f.label :tag_eq,  "Filtrer par Métier"%>
-      <%= f.select :tag_eq, options_for_select([['Photographe','Photographe'],['Graphiste','Graphiste'],['Maquilleur','Maquilleur'],['Monteur','Monteur']], :selected => params[:q][:tag_eq]), {:include_blank => "Tout afficher"}, {id:"custom_dropdown", class: "form-control"} %>
+      <%= f.select :tag_eq, options_for_select([['Photographe','Photographe'],['Graphiste','Graphiste'],['Maquilleur','Maquilleur'],['Monteur','Monteur']]), {:include_blank => "Tout afficher"}, {id:"custom_dropdown", class: "form-control"} %>
     </div>
     <div class="block">
       <%= f.label :price_gteq,  "Prix entre" %>
@@ -18,6 +18,7 @@
       <%= f.number_field :price_lteq, min:10, step:10%>
     </div>
     <div class="submit">
+      <%= link_to "Clear", request.path, class: "btn btn-default" %>
       <%= f.submit "Rechercher", class: "btn btn-primary" %>
     </div>
   </div>
