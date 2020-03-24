@@ -58,7 +58,7 @@ class AdvertsController < ApplicationController
   def destroy
     @advert = Advert.find(params[:id])
     @advert.destroy
-    flash[:alert] = "Votre projet a bien été supprimé."
+    flash[:success] = "Votre projet a bien été supprimé."
     redirect_to root_path
   end
 
