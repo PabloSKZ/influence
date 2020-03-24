@@ -1,5 +1,5 @@
 class AdvertsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :my_sanitizer
   def index
     @adverts = Advert.order(created_at: :desc)
   end
@@ -44,10 +44,12 @@ class AdvertsController < ApplicationController
   def destroy
     @advert = Advert.find(params[:id])
     @advert.destroy
-    
     redirect_to root_path
   end
 
+  def my_sanitizer
+    
+  end
 
   private
 
