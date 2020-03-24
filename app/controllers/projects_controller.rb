@@ -1,18 +1,19 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource param_method: :my_sanitizer
   def index
+    @projects = Project.order(created_at: :desc)
     if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
-     end
-    @projects = Project.order(created_at: :desc)
+    end
   end
 
   def show
+    @project = Project.find(params[:id])
      if current_user == nil
       flash[:notice] = "Veuillez vous connecter afin d'accéder à la liste des projets."
       redirect_to new_user_session_path
      end
-    @project = Project.find(params[:id])
     session[:id] = @project.id
   end
 
@@ -21,7 +22,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    puts "$"*100
     @project = Project.new(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id)
       if @project.save
         flash[:notice] = "Votre projet a bien été créé."
@@ -53,7 +53,11 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    flash[:notice] = "Votre projet a bien été supprimé."
+    redirect_to dashboard_path(params[:id])
+  end
 
-    redirect_to root_path
+  def my_sanitizer
+    
   end
 end
