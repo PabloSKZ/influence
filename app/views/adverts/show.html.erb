@@ -36,16 +36,21 @@
             <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-danger mx-2" %>
           </div>
         <% elsif current_user != nil && current_user.user_type == 'influencer' %>
+
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Inviter <%= @advert.user.first_name %>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <% current_user.projects.each do |project| %>
-            
-              <%= link_to "Sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "dropdown-item" %>
-            
-          <% end %>
+            <% if current_user.projects[0] == nil %>
+              <%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "dropdown-item" %>
+            <% else %>
+              <% current_user.projects.each do |project| %>
+                <% if !(@advert.projects.include?(project))%>
+                  <%= link_to "Sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "dropdown-item" %>
+                <% end %>
+              <% end %>
+            <% end %>
         <% end %>
       </div>
         </div>
