@@ -1,12 +1,12 @@
 
-<h1 class="text-center" style="margin-top: 2rem;">Freelances disponibles</h1>
+<h2 class="text-center" style="margin-top: 2rem;">Freelances disponibles</h2>
 <br>
 <div class="container">
   <div class="row">
     <% @adverts.each do |advert|%>
       <div class="col-md-4 d-flex text-center">
       <div class="card mb-4" style="width:20rem;">
-      <h4 class="card-header bg-primary text-white"><%= advert.user.first_name %> <%= advert.user.last_name %></h4>
+      <h5 class="card-header bg-primary text-white"><%= advert.user.first_name %> <%= advert.user.last_name %></h5>
         <% if advert.avatar.attached? %>
           <%= image_tag advert.avatar, alt:'avatar',style:"height: auto; width: 100%; display: block;"%>
         <% else %> 
