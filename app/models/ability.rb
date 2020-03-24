@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
     alias_action :create, :read, :update, :destroy, to: :crud
     alias_action :read, :update, :destroy, to: :rud
-    alias_action :update, :destroy, to: :rud
+    alias_action :update, :destroy, to: :ud
     
     if user
       if user.user_type == 'influencer'
