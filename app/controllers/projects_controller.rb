@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id)
       if @project.save
-        flash[:notice] = "Votre projet a bien été créé."
+        flash[:success] = "Votre projet a bien été créé."
         redirect_to project_path(@project)
       else
         @errors = @project.errors
@@ -43,17 +43,18 @@ class ProjectsController < ApplicationController
       if !params[:project][:cover].nil?
         @project.cover.attach(params[:project][:cover])
       end
+      flash[:success] = "Votre projet a bien été modifié."
       redirect_to @project
     else
-      flash[:notice] = "Votre projet a bien été modifié."
-      render :edit
+      flash[:notice] = "Veuillez vérifier vos modifications."
+      redirect_to edit_project_path(params[:id])
     end
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    flash[:notice] = "Votre projet a bien été supprimé."
+    flash[:alert] = "Votre projet a bien été supprimé."
     redirect_to dashboard_path(params[:id])
   end
 

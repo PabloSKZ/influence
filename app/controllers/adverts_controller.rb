@@ -14,7 +14,7 @@ class AdvertsController < ApplicationController
     @advert.picture = "https://i.stack.imgur.com/l60Hf.png"
     
     if @advert.save
-      flash[:notice] = "Votre annonce a bien été créé."
+      flash[:success] = "Votre annonce a bien été créée."
       redirect_to advert_path(@advert)
     else
       @errors = @advert.errors
@@ -37,9 +37,10 @@ class AdvertsController < ApplicationController
       if !params[:advert][:avatar].nil?
         @advert.avatar.attach(params[:advert][:avatar])
       end
-      flash[:notice] = "Votre projet a bien été modifié."
+      flash[:success] = "Votre projet a bien été modifié."
       redirect_to @advert
     else
+      flash[:notice] = "Veuillez sélectionner un métier pour lequel vous n'avez pas déjà créé d'annonce."
       render :edit
     end
   end
@@ -47,6 +48,7 @@ class AdvertsController < ApplicationController
   def destroy
     @advert = Advert.find(params[:id])
     @advert.destroy
+    flash[:alert] = "Votre projet a bien été supprimé."
     redirect_to root_path
   end
 
