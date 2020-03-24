@@ -11,7 +11,7 @@ class AdvertsController < ApplicationController
   def create
     @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
     @advert.user_id = current_user.id
-    @advert.picture = "https://i.stack.imgur.com/l60Hf.png"
+    @advert.picture = "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg"
     
     if @advert.save
       flash[:notice] = "Votre annonce a bien été créé."

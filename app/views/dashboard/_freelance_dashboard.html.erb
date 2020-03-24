@@ -1,23 +1,32 @@
-
 <br>
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-md-8">
     <div class="card">
-          <div class="card-header bg-primary"><h4 class="text-white text-center">Liste des projets vous participez :</h4></div>
+          <div class="card-header bg-primary"><h5 class="text-white text-center">Liste des projets vous participez :</h5></div>
         <div class="card-body">
         <ul class="list-group">
     <% current_user.adverts.each do |advert| %>
     <ul class="list-group">
         <% advert.projects.each do |project| %>
             <li class="list-group-item d-flex justify-content-between align-items-center mb-1 d-flex justify-content-between">
-                <%= project.title %> <%= project.description %> <%= link_to "Détails du projet", project_path(project.id) %>
+                <%= project.title %><%= link_to "Détails du projet", project_path(project.id) %>
             </li>
         <% end %>
     </ul>
     <% end %>
-    <br>
-    <h2>Liste de vos annonces :</h2>
+    </div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="col-md-8">
+    <div class="card mt-4">
+          <div class="card-header bg-primary"><h5 class="text-white text-center">Liste de vos annonces :</h5></div>
+        <div class="card-body">
+        <ul class="list-group">
+
     <% current_user.adverts.each do |advert| %>
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center mb-1 d-flex justify-content-between">
