@@ -64,7 +64,7 @@ tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
     Advert.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
-        picture: "https://www.premiere.fr/sites/default/files/styles/scale_crop_1280x720/public/2019-10/les%20temps%20modernes.jpg",
+        picture: "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg",
         user_id: User.where(user_type:"freelance").sample.id,
         link_field: "http://www.twitter.com",
         price: rand(10...250),
