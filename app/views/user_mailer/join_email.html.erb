@@ -8,10 +8,11 @@
       <h1>Salut <%= @user.first_name %>  !</h1>
         <div>
           <p>
-            Un Freelance a rejoint ton projet <strong><%= @project.title %></strong>.
+             <%= @advert.user.first_name %> a rejoint ton projet <strong><%= @project.title %></strong> en tant que <strong><%= @advert.tag %></strong>.
           </p>
+          <p>Tu peux le contacter à l'adresse suivante : <%= @advert.user.email %></p>
           <p>
-            Pour en savoir plus, consulte ton projet <a href ="<%= @url %>">en cliquant ici</a>.
+            Pour plus d'option, consulte ton projet <a href ="<%= @url %>">en cliquant ici</a>.
           </p>
           <p> À très vite sur Influence !</p>
         </div>

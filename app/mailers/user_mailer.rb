@@ -17,8 +17,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Vous avez rejoint un projet !')
   end
 
-  def join_email(project)
+  def join_email(project,advert)
     @project = project
+    @advert = advert
     @user = project.user
 
     @url = "http://influence-thp.herokuapp.com/projects/#{@project.id}"
