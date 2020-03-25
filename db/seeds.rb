@@ -19,7 +19,7 @@ City.create(name: 'Biarritz')
 City.create(name: 'Lyon')
 City.create(name: 'Marseille')
 
-10.times do 
+6.times do 
     User.create(
       first_name: Faker::Name.first_name, 
       last_name: Faker::Name.last_name, 
@@ -33,7 +33,7 @@ City.create(name: 'Marseille')
     )
     end
 
-10.times do 
+6.times do 
     User.create(
         first_name: Faker::Name.first_name, 
         last_name: Faker::Name.last_name, 
@@ -59,7 +59,7 @@ User.create(
     city_id: rand(1..4)
     )
 
-10.times do 
+6.times do 
     Project.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
@@ -73,7 +73,7 @@ end
 
 tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
 
-10.times do 
+6.times do 
     Advert.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
@@ -86,7 +86,7 @@ tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
     )
 end
 
-10.times do 
+1.times do 
     AdvertsProjectsJoin.create(
         advert_id: Advert.all.sample.id,
         project_id: Project.all.sample.id

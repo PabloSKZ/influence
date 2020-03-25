@@ -7,7 +7,7 @@ class AdvertsProjectsJoin < ApplicationRecord
 
 
   def join_send
-    UserMailer.join_email(self.project).deliver_now
+    UserMailer.join_email(self.project,self.advert).deliver_now
   end
 
   def invitation_send
