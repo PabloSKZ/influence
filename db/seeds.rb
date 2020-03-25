@@ -19,7 +19,7 @@ City.create(name: 'Biarritz')
 City.create(name: 'Lyon')
 City.create(name: 'Marseille')
 
-6.times do 
+3.times do 
     User.create(
       first_name: Faker::Name.first_name, 
       last_name: Faker::Name.last_name, 
@@ -29,11 +29,10 @@ City.create(name: 'Marseille')
       password_confirmation: "123456",
       picture: "https://fr.web.img4.acsta.net/newsv7/16/04/05/16/08/178817.jpg",
       user_type: "influencer", 
-      city_id: rand(1..4)
     )
     end
 
-6.times do 
+3.times do 
     User.create(
         first_name: Faker::Name.first_name, 
         last_name: Faker::Name.last_name, 
@@ -43,7 +42,6 @@ City.create(name: 'Marseille')
         password_confirmation: "123456",
         picture: "https://disney-planet.fr/wp-content/uploads/2016/08/Kuzco-personnage-dans-kuzco-lempereur-megalo-03.jpg",
         user_type: "freelance", 
-        city_id: rand(1..4)
     )
     end
     
@@ -56,7 +54,6 @@ User.create(
     password_confirmation: "123456",
     picture: "https://images-eu.ssl-images-amazon.com/images/I/41RutyIlzkL.jpg",
     user_type: "freelance",
-    city_id: rand(1..4)
     )
 
 6.times do 
