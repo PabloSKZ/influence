@@ -12,6 +12,13 @@ AdvertsProjectsJoin.destroy_all
 Project.destroy_all
 Advert.destroy_all
 User.destroy_all
+City.destroy_all
+
+4.times do 
+    City.create(
+        name: ['Paris', 'Lyon', 'Marseille', 'Biarritz'].sample
+    )
+end
 
 10.times do 
     User.create(
@@ -22,7 +29,9 @@ User.destroy_all
       password: "123456",
       password_confirmation: "123456",
       picture: "https://fr.web.img4.acsta.net/newsv7/16/04/05/16/08/178817.jpg",
-      user_type: "influencer")
+      user_type: "influencer", 
+      city_id: rand(1..4)
+    )
     end
 
 10.times do 
@@ -34,7 +43,9 @@ User.destroy_all
         password: "123456",
         password_confirmation: "123456",
         picture: "https://disney-planet.fr/wp-content/uploads/2016/08/Kuzco-personnage-dans-kuzco-lempereur-megalo-03.jpg",
-        user_type: "freelance")
+        user_type: "freelance", 
+        city_id: rand(1..4)
+    )
     end
     
 User.create(
