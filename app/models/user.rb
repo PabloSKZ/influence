@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :adverts
   has_many :projects
-  belongs_to :city
   after_create :welcome_send
   
   def welcome_send
