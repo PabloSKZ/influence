@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_113458) do
+ActiveRecord::Schema.define(version: 2020_03_25_151200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_113458) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_adverts_on_city_id"
     t.index ["user_id"], name: "index_adverts_on_user_id"
   end
 
@@ -59,6 +61,12 @@ ActiveRecord::Schema.define(version: 2020_03_24_113458) do
     t.index ["project_id"], name: "index_adverts_projects_joins_on_project_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.text "description"
     t.string "picture"
@@ -67,12 +75,15 @@ ActiveRecord::Schema.define(version: 2020_03_24_113458) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_projects_on_city_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.bigint "city_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -88,8 +99,10 @@ ActiveRecord::Schema.define(version: 2020_03_24_113458) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "adverts", "cities"
   add_foreign_key "adverts", "users"
   add_foreign_key "adverts_projects_joins", "adverts"
   add_foreign_key "adverts_projects_joins", "projects"
+  add_foreign_key "projects", "cities"
   add_foreign_key "projects", "users"
 end
