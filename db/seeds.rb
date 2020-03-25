@@ -45,7 +45,7 @@ User.create(
     password: "123456",
     password_confirmation: "123456",
     picture: "https://images-eu.ssl-images-amazon.com/images/I/41RutyIlzkL.jpg",
-    user_type: "freelance")
+    user_type: "admin")
 
 10.times do 
     Project.create(

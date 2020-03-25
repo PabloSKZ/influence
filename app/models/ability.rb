@@ -9,7 +9,9 @@ class Ability
     alias_action :update, :destroy, to: :ud
     
     if user
-      if user.user_type == 'influencer'
+      if user.admin ==  true
+        can :manage, :all
+      elsif user.user_type == 'influencer'
         can :create, Project
         can :read, Project
         can :ud, Project, user_id: user.id
