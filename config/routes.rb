@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :adverts
+      resources :adverts_projects_joins
+      resources :projects
+
+      root to: "users#index"
+    end
   root 'welcome#index'
   devise_for :users, controllers: { registrations: "registrations" }
   resources :adverts do
