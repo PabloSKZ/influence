@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id)
+    @project = Project.new(title: params[:project][:title], city_id: params[:project][:city_id], description: params[:project][:description], link_field: params[:project][:link_field], picture: 'https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg', user_id: current_user.id)
       if @project.save
         flash[:success] = "Votre projet a bien été créé."
         redirect_to project_path(@project)
