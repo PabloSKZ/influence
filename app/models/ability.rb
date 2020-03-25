@@ -22,6 +22,7 @@ class Ability
       end
     else
       can :read, Advert
+      can :read, Project
     end
   end
 
