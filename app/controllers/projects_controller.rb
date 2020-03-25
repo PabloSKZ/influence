@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   def update
     puts params
       @project = Project.find(params[:id])
-    if @project.update(title: params[:project][:title], description: params[:project][:description], link_field: params[:project][:link_field])
+    if @project.update(title: params[:project][:title], city_id: params[:project][:city_id], description: params[:project][:description], link_field: params[:project][:link_field])
       if !params[:project][:cover].nil?
         @project.cover.attach(params[:project][:cover])
       end

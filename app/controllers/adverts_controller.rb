@@ -44,7 +44,7 @@ class AdvertsController < ApplicationController
 
   def update
     @advert = Advert.find(params[:id])
-    if @advert.update(description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+    if @advert.update(description: params[:advert][:description], city_id: params[:advert][:city_id], price: params[:advert][:price],link_field: params[:advert][:link_field])
       if !params[:advert][:avatar].nil?
         @advert.avatar.attach(params[:advert][:avatar])
       end
