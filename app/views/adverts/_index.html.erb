@@ -1,4 +1,3 @@
-
 <h2 class="text-center" style="margin-top: 2rem;">Freelances disponibles</h2>
 <br>
 <div class="container">
@@ -9,6 +8,10 @@
     <div class="block">
       <%= f.label :tag_eq,  "Filtrer par Métier"%>
       <%= f.select :tag_eq, options_for_select([['Photographe','Photographe'],['Graphiste','Graphiste'],['Maquilleur','Maquilleur'],['Monteur','Monteur']]), {:include_blank => "Tout afficher"}, {id:"custom_dropdown", class: "form-control"} %>
+    </div>
+    <div class="block">
+      <%= f.label :city_id_eq,  "Filtrer par Ville"%>
+      <%= f.select :city_id_eq, options_for_select([['Paris', 1],['Biarritz', 2],['Lyon', 3],['Marseille',4]]), {:include_blank => "Tout afficher"}, {id:"custom_dropdown", class: "form-control"} %>
     </div>
     <div class="block">
       <%= f.label :price_gteq,  "Prix entre" %>

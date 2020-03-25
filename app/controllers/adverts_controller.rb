@@ -15,7 +15,8 @@ class AdvertsController < ApplicationController
   end
 
   def create
-    @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag],description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+    puts params
+    @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag], city_id: params[:advert][:city_id], description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
     @advert.user_id = current_user.id
     @advert.picture = "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg"
     @errors = @advert.errors
@@ -43,7 +44,7 @@ class AdvertsController < ApplicationController
 
   def update
     @advert = Advert.find(params[:id])
-    if @advert.update(description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+    if @advert.update(description: params[:advert][:description], city_id: params[:advert][:city_id], price: params[:advert][:price],link_field: params[:advert][:link_field])
       if !params[:advert][:avatar].nil?
         @advert.avatar.attach(params[:advert][:avatar])
       end
@@ -59,7 +60,7 @@ class AdvertsController < ApplicationController
     @advert = Advert.find(params[:id])
     @advert.destroy
     flash[:success] = "Votre annonce a bien été supprimée."
-    redirect_to root_path
+    redirect_to dashboard_path(params[:id])
   end
 
   def my_sanitizer

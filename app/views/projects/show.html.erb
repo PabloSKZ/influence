@@ -8,6 +8,7 @@
     <% end %>
     <div class="card-body text-center">
       <p class="card-text"><h5>Description du projet:</h5> <%= @project.description.tr('[\"\"]','') =%></p>
+      <p class="card-text"><h6>Ville:</h6> <%= City.find(@project.city_id).name =%></p> 
       <p class="card-text"><h6>Liens:</h6> <%= @project.link_field.tr('[\"\"]','') =%></p> 
       <p class="card-text">
         <h6>Freelances sur le projet :</h6>
@@ -32,7 +33,6 @@
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               S'inviter sur le projet 
             </button>
-
             <% if current_user.adverts[0] == nil %>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <%= link_to "Créer une annonce", new_advert_path, class: "dropdown-item" %>

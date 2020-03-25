@@ -12,8 +12,14 @@ AdvertsProjectsJoin.destroy_all
 Project.destroy_all
 Advert.destroy_all
 User.destroy_all
+City.destroy_all
 
-10.times do 
+City.create(name: 'Paris')
+City.create(name: 'Biarritz')    
+City.create(name: 'Lyon')
+City.create(name: 'Marseille')
+
+3.times do 
     User.create(
       first_name: Faker::Name.first_name, 
       last_name: Faker::Name.last_name, 
@@ -22,10 +28,11 @@ User.destroy_all
       password: "123456",
       password_confirmation: "123456",
       picture: "https://fr.web.img4.acsta.net/newsv7/16/04/05/16/08/178817.jpg",
-      user_type: "influencer")
+      user_type: "influencer", 
+    )
     end
 
-10.times do 
+3.times do 
     User.create(
         first_name: Faker::Name.first_name, 
         last_name: Faker::Name.last_name, 
@@ -34,7 +41,8 @@ User.destroy_all
         password: "123456",
         password_confirmation: "123456",
         picture: "https://disney-planet.fr/wp-content/uploads/2016/08/Kuzco-personnage-dans-kuzco-lempereur-megalo-03.jpg",
-        user_type: "freelance")
+        user_type: "freelance", 
+    )
     end
     
 User.create(
@@ -45,34 +53,38 @@ User.create(
     password: "123456",
     password_confirmation: "123456",
     picture: "https://images-eu.ssl-images-amazon.com/images/I/41RutyIlzkL.jpg",
-    user_type: "admin")
+    user_type: "freelance",
+    admin: true,
+    )
 
-10.times do 
+6.times do 
     Project.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
         picture: "https://i.kym-cdn.com/entries/icons/mobile/000/026/738/future.jpg",
-        user_id: User.where(user_type:"influencer").sample.id,
-        link_field: "http://www.instagram.com"
+        user_id: User.where(user_type: "influencer").sample.id,
+        link_field: "http://www.instagram.com",
+        city_id: rand(1..4)
     )
 end
 
 
 tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
 
-10.times do 
+6.times do 
     Advert.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
         picture: "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg",
-        user_id: User.where(user_type:"freelance").sample.id,
+        user_id: User.where(user_type: "freelance").sample.id,
         link_field: "http://www.twitter.com",
         price: rand(10...250),
-        tag: tags[rand(0...3)]
+        tag: tags[rand(0...3)],
+        city_id: rand(1..4)
     )
 end
 
-10.times do 
+1.times do 
     AdvertsProjectsJoin.create(
         advert_id: Advert.all.sample.id,
         project_id: Project.all.sample.id

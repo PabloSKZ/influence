@@ -44,18 +44,18 @@
         <!-- Links -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Liens</h5>
 
-        <ul class="list-unstyled font-weight-bold", style="text-decoration: none">
+        <ul class="list-unstyled font-weight-bold", style="text-decoration: none; line-height: 80% ">
           <li>
-            <a href="#!">Acceuil</a>
+          <%= link_to 'Accueil', root_path, class: 'nav-link' %>
           </li>
           <li>
-            <a href="#!">A Propos</a>
+          <%= link_to 'A Propos', ourteam_path, class: 'nav-link' %>
           </li>
           <li>
-            <a href="#!">Contact</a>
+          <%= link_to 'Contact', root_path, class: 'nav-link' %>
           </li>
           <li>
-            <a href="#!">Se connecter</a>
+          <%= link_to 'Se connecter', root_path, class: 'nav-link' %>
           </li>
         </ul>
 
