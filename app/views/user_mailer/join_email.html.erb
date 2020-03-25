@@ -5,13 +5,13 @@
   </head>
   <body>
     <div>
-      <h1>Salut <%= @user.first_name %> et bienvenue sur Influence !</h1>
+      <h1>Salut <%= @user.first_name %>  !</h1>
         <div>
           <p>
-            Tu t'es inscrit en utilisant l'e-mail suivant : <%= @user.email %>.
+            Un Freelance a rejoint ton projet <strong><%= @project.title %></strong>.
           </p>
           <p>
-            Pour accéder à ton espace client, connecte-toi <a href ="<%= @url %>">en cliquant ici</a>.
+            Pour en savoir plus, consulte ton projet <a href ="<%= @url %>">en cliquant ici</a>.
           </p>
           <p> À très vite sur Influence !</p>
         </div>
