@@ -14,11 +14,10 @@ Advert.destroy_all
 User.destroy_all
 City.destroy_all
 
-4.times do 
-    City.create(
-        name: ['Paris', 'Lyon', 'Marseille', 'Biarritz'].sample
-    )
-end
+City.create(name: 'Paris')
+City.create(name: 'Biarritz')    
+City.create(name: 'Lyon')
+City.create(name: 'Marseille')
 
 10.times do 
     User.create(
@@ -56,15 +55,18 @@ User.create(
     password: "123456",
     password_confirmation: "123456",
     picture: "https://images-eu.ssl-images-amazon.com/images/I/41RutyIlzkL.jpg",
-    user_type: "freelance")
+    user_type: "freelance",
+    city_id: rand(1..4)
+    )
 
 10.times do 
     Project.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
         picture: "https://i.kym-cdn.com/entries/icons/mobile/000/026/738/future.jpg",
-        user_id: User.where(user_type:"influencer").sample.id,
-        link_field: "http://www.instagram.com"
+        user_id: User.where(user_type: "influencer").sample.id,
+        link_field: "http://www.instagram.com",
+        city_id: rand(1..4)
     )
 end
 
@@ -76,10 +78,11 @@ tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
         picture: "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg",
-        user_id: User.where(user_type:"freelance").sample.id,
+        user_id: User.where(user_type: "freelance").sample.id,
         link_field: "http://www.twitter.com",
         price: rand(10...250),
-        tag: tags[rand(0...3)]
+        tag: tags[rand(0...3)],
+        city_id: rand(1..4)
     )
 end
 
