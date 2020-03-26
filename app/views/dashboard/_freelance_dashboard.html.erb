@@ -43,7 +43,7 @@
                         <div class=" justify-content-end", style="text-decoration: none">
                         <%= link_to "Détails", advert_path(advert.id), :class => "btn btn-primary btn-sm" %> 
                         <%= link_to "Modifier", edit_advert_path(advert.id), :class => "btn btn-primary btn-sm"  %> 
-                        <%= link_to "Supprimer", advert_path(advert.id), method: :delete, :class => "btn btn-primary btn-sm"  %>
+                        <%= link_to "Supprimer", advert_path(advert.id), method: :delete, :class => "btn btn-primary btn-sm", :data => {:confirm => 'Es-tu sûr ?'}  %>
                         </div>
                     </li>
                 </ul>

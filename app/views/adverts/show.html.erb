@@ -35,7 +35,7 @@
         
 
         <div class="col-lg mb-3">
-        <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-primary btn-sm mx-2" %>
+        <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-primary btn-sm mx-2", :data => {:confirm => 'Es-tu sûr ?'} %>
        </div>
        </div>
       

@@ -18,7 +18,7 @@
                     <div class=" justify-content-end", style="text-decoration: none">
                     <%= link_to "Détails", project_path(project.id), :class => "btn btn-primary btn-sm" %>
                     <%= link_to 'Modifier', edit_project_path(project.id), :class => "btn btn-primary btn-sm" %>
-                    <%= link_to "Supprimer", project_path(project.id), method: :delete, :class => "btn btn-primary btn-sm"  %>
+                    <%= link_to "Supprimer", project_path(project.id), method: :delete, :class => "btn btn-primary btn-sm", :data => {:confirm => 'Es-tu sûr ?'}  %>
                 </div>
                 </li>
             </ul>
