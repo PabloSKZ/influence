@@ -12,9 +12,13 @@ class AdvertsController < ApplicationController
 
   def create
     puts params
+    puts "$"*100
     @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag], city_id: params[:advert][:city_id], description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
     @advert.user_id = current_user.id
-    @advert.picture = "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg"
+    if !params[:advert][:cover].nil?
+      @advert.avatar.attach(params[:advert][:cover])
+    
+    end
     @errors = @advert.errors
     if @advert.save
       flash[:success] = "Votre annonce a bien été créée."
@@ -59,14 +63,13 @@ class AdvertsController < ApplicationController
     redirect_to dashboard_path(params[:id])
   end
 
-  def my_sanitizer
-    
+  def my_sanitizer  
   end
 
   private
 
   def advert_params
-    params.permit(:title, :description, :link_field, :price, :tag, :user_id)
+    params.permit(:title, :description, :link_field, :price, :tag, :user_id, :avatar)
   end
 
 end
