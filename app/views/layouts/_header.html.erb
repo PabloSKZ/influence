@@ -41,7 +41,11 @@
       Mon compte
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% if current_user != nil && current_user.admin == true %>
+      <%= link_to "Dashboard admin", admin_users_path, class: 'dropdown-item' %>
+    <% elsif current_user != nil && current_user.user_type == "influencer" %>
       <%= link_to "Mon dashboard", dashboard_path(current_user.id), class: 'dropdown-item' %>
+    <% end %>
       <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
     </div>
   </div>

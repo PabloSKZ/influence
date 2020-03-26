@@ -18,23 +18,30 @@
           <p class="card-text mt-3 font-weight-bold"> Lien : <a href="<%= @advert.link_field %>"><%= @advert.link_field %></a></p>
         </div>
       </div>
-    </div>
-    <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:20%;">
-      <% if current_user == nil %>
-        <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
-      <% elsif current_user != nil && current_user.id == @advert.user_id %>
-        <div class="row">
+        <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:20%;">
+          <% if current_user == nil %>
+          <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
+          <% elsif current_user != nil && current_user.id == @advert.user_id %>
+
+          <div class="row">
+
+            <div class="col-lg mb-3">
+              <%= link_to 'Trouver des projets', projects_path, class: 'btn btn-primary btn-sm mx-2' %>
+              </div>
+              
           <div class="col-lg mb-3">
-            <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary btn-sm mx-2" %>
-          </div>
-          <div class="col-lg mb-3">
-            <%= link_to 'Retourner à annonces', adverts_path, class: 'btn btn-primary btn-sm mx-2' %>
-          </div>
-          <div class="col-lg mb-3">
-            <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-primary btn-sm mx-2" %>
-          </div>
-        </div>
-      <% elsif current_user != nil && current_user.user_type == 'influencer' %>
+         <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary btn-sm mx-2" %>
+         </div>
+        
+
+        <div class="col-lg mb-3">
+        <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-primary btn-sm mx-2" %>
+       </div>
+       </div>
+      
+          
+        <% elsif current_user != nil && current_user.user_type == 'influencer' %>
+
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
