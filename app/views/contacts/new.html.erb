@@ -1,20 +1,23 @@
-<h1>Hello!</h1>
-<%= form_for @contact, url: new_contact_path, remote: true do |f| %>
-
-    <div class="col-md-6">
+<div class="container mt-4 mb-4">
+      <div class="row justify-content-center">
+          <div class="col-md-8">
+              <div class="card">
+                    <div class="card-header bg-primary"><h4 class="text-white text-center">Contactez nous</h4></div>
+                  <div class="card-body justify-content-center">
+                  <%= form_for @contact, url: new_contact_path, remote: true do |f| %>
         <%= f.label :name %></br>
-        <%= f.text_field  :name, required: true, class: "contact-form-text-area", style:"height: 40px; font-size: 18px;" %></br>
-
+        <%= f.text_field  :name, required: true, class: "contact-form-text-area col-md-8" %></br>
+        <br>
         <%= f.label :email %></br>
-        <%= f.text_field :email, required: true, class: "contact-form-text-area", style:"height: 40px; font-size: 18px;" %></br>
-
+        <%= f.text_field :email, required: true, class: "contact-form-text-area col-md-8" %></br>
+        <br>
         <%= f.label :message %></br>
-        <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
+        <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area col-md-8",
                         placeholder: "Envoie moi un message !"%></br>
-
+        <br>
       <div class= "hidden">
         <%= f.label :nickname %>
-        <%= f.text_field :nickname, :hint => 'Ne laisse pas ce champ vide !' %>
+        <%= f.text_field :nickname, :hint => 'leave this field blank !' %>
       </div>
 
         <%= f.submit 'Envoi du message', class: 'btn btn-primary text-center' %>
@@ -22,4 +25,9 @@
 
 <% end %>
 
-  
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
