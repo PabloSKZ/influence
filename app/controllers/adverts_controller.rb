@@ -4,10 +4,6 @@ class AdvertsController < ApplicationController
   def index
     @search = Advert.ransack(params[:q])
     @adverts = @search.result
-
-    # if params[:q].blank?
-    #   @adverts = Advert.order(created_at: :desc)
-    # end
   end
 
   def new
