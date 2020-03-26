@@ -5,9 +5,11 @@ This is a mock Ruby on Rails app we made as our final project for the coding boo
 Just download the repository, unzip it, navigate to it inside your terminal, then execute <code>bundle install</code>, <code>rails db:create</code>, <code>rails db:migrate</code>, <code>rails db:seed</code>, and finally, <code>rails s</code>. Then navigate to <a href="localhost:3000">localhost:3000</a> in your web browser.
 Alternatively, you can directly test it online at <a href="http://influence-thp.herokuapp.com/">this <strong>Heroku</strong></a> address.
 <h2>Who worked on this ?</h2>
-Pablo : https://github.com/PabloSKZ
-Nazanin : https://github.com/Nazaninf24
-Jonathan : https://github.com/Stovenn
-Chelton :https://github.com/Cheltonne
+<ul>
+  <li>Pablo : https://github.com/PabloSKZ</li>
+ <li>Nazanin : https://github.com/Nazaninf24</li>
+ <li>Jonathan : https://github.com/Stovenn</li>
+ <li>Chelton :https://github.com/Cheltonne</li>
+ </ul>
 <hr>
 Thank you for reading this far !
