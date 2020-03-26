@@ -33,7 +33,7 @@
       <div class="card mb-4" style="width:20rem;">
       <h5 class="card-header bg-primary text-white"><%= advert.user.first_name %> <%= advert.user.last_name %></h5>
         <% if advert.avatar.attached? %>
-          <%= image_tag advert.avatar, alt:'avatar',style:"height: auto; width: 100%; display: block;"%>
+          <%= image_tag advert.avatar, alt:'avatar',style:"height: auto; width: 100%; display: block;" %>
         <% else %> 
           <img style="height: auto; width: 100%; display: block;" src="<%= advert.picture  =%>" alt="Card image">
         <% end %>

@@ -1,24 +1,23 @@
 <h2 class="text-center" style="margin-top: 2rem;">Liste des projets disponibles</h2>
-
 <div class="container" style='margin-top: 5rem;'>
   <div class="row">
-  <% @projects.each do |project| %>
-  <div class="col-md-4  d-flex justify-content-around">
-    <div class="card mb-5" style="width:20rem;">
-      <h4 class="card-header bg-primary text-white"><%= project.title =%></h4>
-      <% if project.cover.attached? %>
-        <%= image_tag project.cover, alt: 'cover',style:"height: auto; width: 100%; display: block;"%>
-      <% else %>
-        <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
-      <% end %>
-      <div class="card-body text-center">
-        <p class="card-text"><%= truncate(project.description.tr('[\"\"]',''), :length => 60)  =%></p>
-        <div>
-          <%= link_to "En voir plus", project_path(project.id), class: "btn btn-primary card-link text-center" %>
+    <% @projects.each do |project| %>
+      <div class="col-md-4  d-flex justify-content-around">
+        <div class="card mb-5" style="width:20rem;">
+          <h4 class="card-header bg-primary text-white"><%= project.title =%></h4>
+          <% if project.cover.attached? %>
+            <%= image_tag project.cover, alt: 'cover',style:"height: auto; width: 100%; display: block;"%>
+          <% else %>
+            <img style="height: auto; width: 100%; display: block;" src="<%= project.picture =%>" alt="Card image">
+          <% end %>
+          <div class="card-body text-center">
+            <p class="card-text"><%= truncate(project.description.tr('[\"\"]',''), :length => 60)  =%></p>
+            <div>
+              <%= link_to "En voir plus", project_path(project.id), class: "btn btn-primary card-link text-center" %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
