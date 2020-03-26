@@ -11,7 +11,7 @@ class Advert < ApplicationRecord
   validates :tag, uniqueness: {scope: :user_id}
   validates :description, length: { minimum: 50, maximum: 250 }
   validates :link_field, format: { with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,
-      message: "mauvais format", :multiline => true }
+      message: errors[:link_field] << "Mauvais format", :multiline => true }
   
   before_commit :avatar_validation, on: :update
   private
