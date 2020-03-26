@@ -1,16 +1,28 @@
-<h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<nav class="login-form mt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header bg-primary">
+            <h4 class="text-white text-center">Renvoyer les intructions de déblocage</h4>
+          </div>
+          <div class="card-body">
+            <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>>
+              <div class="form-group row">
+                <%= f.label :email %>
+                <div class="col-md-6">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+              </div>
+              <div class="col-md-6 offset-md-4">
+                <%= f.submit "Renvoyer les intructions" %>>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</nav>
