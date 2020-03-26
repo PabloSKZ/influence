@@ -1,5 +1,5 @@
 {
-    "master_picture": "TODO: app/assets/images/master_picture.png",
+    "master_picture": "app/assets/images/LogoInfluence-Favicon.png",
     "favicon_design": {
         "ios": {
             "picture_aspect": "no_change",
