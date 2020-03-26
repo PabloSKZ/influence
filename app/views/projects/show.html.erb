@@ -9,7 +9,7 @@
     <div class="card-body text-center">
       <p class="card-text"><h5>Description du projet:</h5> <%= @project.description.tr('[\"\"]','') =%></p>
       <p class="card-text"><h6>Ville:</h6> <%= City.find(@project.city_id).name =%></p> 
-      <p class="card-text"><h6>Liens:</h6> <%= @project.link_field.tr('[\"\"]','') =%></p> 
+      <p class="card-text"><h6>Liens:</h6> <a href="<%= @project.link_field %>"><%= @project.link_field.tr('[\"\"]','') =%></a></p> 
       <p class="card-text">
         <h6>Freelances sur le projet :</h6>
         <ul class="list-group">
@@ -26,8 +26,8 @@
       <div class="card-body text-muted text-center" >
         <% if current_user != nil && current_user.id == @project.user_id %>
           <%= link_to 'Inviter des Freelances', adverts_path, class: 'btn btn-primary' %>
-          <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-secondary" %>
-          <%= link_to 'Retourner aux projets', dashboard_path(params[:id]), class: 'btn btn-primary' %>
+          <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-primary" %>
+          <%= link_to 'Voir mes projets', dashboard_path(params[:id]), class: 'btn btn-primary' %>
         <% elsif current_user != nil && current_user.user_type == 'freelance' %>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

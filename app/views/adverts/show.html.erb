@@ -15,7 +15,7 @@
           <p class="card-text"><%= @advert.description %></p>
           <span class="badge badge-pill badge-primary"><%=@advert.price %>€ / jour indicatif</span>
           <p class="card-text"><h6>Ville:</h6> <%= City.find(@advert.city_id).name =%></p>
-          <p class="card-text mt-3 font-weight-bold"> Lien : <a href="<%= @advert.link_field %>"><%= @advert.link_field %></a></p>
+          <p class="card-text mt-3 font-weight-bold"> Lien : <a href="<%= @advert.link_field %>"><%= @advert.link_field.tr('[\"\"]','') %></a></p>
         </div>
       </div>
         <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:20%;">
