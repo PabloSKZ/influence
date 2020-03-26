@@ -56,7 +56,7 @@
                 <div class="col-md-6 offset-md-4 d-flex  mr-auto text-center">
                   <%= f.submit "Sauvegarder", class: "btn btn-primary mr-auto" %>
                   <% end %>
-                  <%= link_to "Supprimer", project_path(@project.id), method: :delete, class: "btn btn-outline-primary mr-auto" %>
+                  <%= link_to "Supprimer", project_path(@project.id), method: :delete, class: "btn btn-outline-primary mr-auto", :data => {:confirm => 'Es-tu sûr ?'} %>
                 </div>
                 <br>              
               </div>
