@@ -13,10 +13,10 @@ Just download the repository, unzip it, navigate to it inside your terminal, the
 Alternatively, you can directly test it online at <a href="http://influence-thp.herokuapp.com/">this <strong>Heroku</strong></a> address.
 <h2>Who worked on this ?</h2>
 <ul>
- <li>Pablo : https://github.com/PabloSKZ</li>
- <li>Nazanin : https://github.com/Nazaninf24</li>
- <li>Jonathan : https://github.com/Stovenn</li>
- <li>Chelton :https://github.com/Cheltonne</li>
+ <li>Pablo Eskenazi : https://github.com/PabloSKZ</li>
+ <li>Nazanin Farshad : https://github.com/Nazaninf24</li>
+ <li>Jonathan Sylvestre : https://github.com/Stovenn</li>
+ <li>Chelton Ajax :https://github.com/Cheltonne</li>
  </ul>
 <hr>
 Thank you for reading this far !
