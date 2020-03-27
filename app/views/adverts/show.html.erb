@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="card flex-row mb-5 " style="height: auto;">
     <% if @advert.avatar.attached? %>
-      <%= image_tag @advert.avatar, alt: 'avatar',style:"max-height:30em;"%>
+    <%= image_tag @advert.avatar, alt: 'avatar',style:"max-height:30em;"%>
     <% else %>
-      <img style="width:20rem;" src="<%= @advert.picture %>" alt="">
+    <img style="width:20rem;" src="<%= @advert.picture %>" alt="">
     <% end %>
 
     <div class="block d-flex" style="width:55%;">
@@ -14,32 +14,35 @@
           <p>Description : </p>
           <p class="card-text"><%= @advert.description %></p>
           <span class="badge badge-pill badge-primary"><%=@advert.price %>€ / jour indicatif</span>
-          <p class="card-text"><h6>Ville:</h6> <%= City.find(@advert.city_id).name =%></p>
-          <p class="card-text mt-3 font-weight-bold"> Lien : <a href="<%= @advert.link_field %>"><%= @advert.link_field.tr('[\"\"]','') %></a></p>
+          <p class="card-text">
+            <h6>Ville:</h6> <%= City.find(@advert.city_id).name =%>
+          </p>
+          <p class="card-text mt-3 font-weight-bold"> Lien : <a
+              href="<%= @advert.link_field %>"><%= @advert.link_field.tr('[\"\"]','') %></a></p>
         </div>
       </div>
-        <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:20%;">
-          <% if current_user == nil %>
+      <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:20%;">
+        <% if current_user == nil %>
           <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
-          <% elsif current_user != nil && current_user.id == @advert.user_id %>
+        <% elsif current_user != nil && current_user.id == @advert.user_id %>
 
-          <div class="row">
+        <div class="row">
 
-            <div class="col-lg mb-3">
-              <%= link_to 'Trouver des projets', projects_path, class: 'btn btn-primary btn-sm mx-2' %>
-              </div>
-              
           <div class="col-lg mb-3">
-         <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary btn-sm mx-2" %>
-         </div>
-        
+            <%= link_to 'Trouver des projets', projects_path, class: 'btn btn-primary btn-sm mx-2' %>
+          </div>
 
-        <div class="col-lg mb-3">
-        <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-primary btn-sm mx-2", :data => {:confirm => 'Es-tu sûr ?'} %>
-       </div>
-       </div>
-      
-          
+          <div class="col-lg mb-3">
+            <%= link_to 'Modifier cette anonce', edit_advert_path, class: "btn btn-primary btn-sm mx-2" %>
+          </div>
+
+
+          <div class="col-lg mb-3">
+            <%= link_to "Supprimer l'annonce", advert_path(@advert.id), method: :delete, class: "btn btn-outline-primary btn-sm mx-2", :data => {:confirm => 'Es-tu sûr ?'} %>
+          </div>
+        </div>
+
+
         <% elsif current_user != nil && current_user.user_type == 'influencer' %>
 
         <div class="dropdown">
@@ -52,14 +55,14 @@
               <%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "dropdown-item" %>
             <% else %>
               <% current_user.projects.each do |project| %>
-                <% if !(@advert.projects.include?(project))%>
-                  <%= link_to "Sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "dropdown-item" %>
-                <% end %>
+              <% if !(@advert.projects.include?(project))%>
+                <%= link_to "Sur #{project.title}", project_adverts_projects_join_index_path(@advert.id,project.id), method: :post, class: "dropdown-item" %>
               <% end %>
             <% end %>
-      <% end %>
+          <% end %>
+        <% end %>
           </div>
         </div>
+      </div>
     </div>
   </div>
-</div>

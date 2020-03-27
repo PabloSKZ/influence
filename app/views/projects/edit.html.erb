@@ -1,68 +1,69 @@
 <% if @errors%>
   <% @errors.messages.each do |message|%>
   <div class="alert alert-danger" role="alert">
-  Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
+    Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
   </div>
-    <% end%>
-  <% end %>
-  
+  <% end%>
+<% end %>
+
 <br>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header bg-primary"><h4 class="text-white text-center">Modifier un projet</h4></div>
-          <div class="card-body">
-            <%= form_with model: @project do |f| %>
-              <div class="form-group row d-flex flex-column align-items-center">
-                <div>
-                  <% if @project.cover.attached? %>
-                    <%= image_tag @project.cover.variant(resize: "120x120!") %>
-                  <% else %>
-                    <%= image_tag @project.picture, height: 240, width:"100%" %>
-                  <% end %>
-                  </div>
-                  <div>
-                    <%= f.file_field :cover %>
-                  </div>
-                </div>
-                <div class="form-group row">
-                      <%= f.label 'Ville', class:'col-md-4 col-form-label text-md-right'  %>
-                      <div class="col-md-6">
-                        <%= f.select :city_id, options_for_select([['Paris', 1], ['Biarritz', 2], ['Lyon', 3], ['Marseille', 4]]), {}, {id:"custom_dropdown", class: "form-control"} %>
-                      </div>
-                    </div>
-                <br> <br>
-                <div class="form-group row">
-                  <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
-                  <div class="col-md-6">
-                    <%= f.text_field :title, class: "form-control"%>
-                  </div>
-                </div>
-                <br> <br>
-                <div class="form-group row">
-                  <%= f.label 'Description', class:'col-md-4 col-form-label text-md-right'  %>
-                  <div class="col-md-6">
-                    <%= f.text_area :description, class: "form-control" %>
-                  </div>
-                </div>
-                <br> <br>
-                <div class="form-group row">
-                  <%= f.label 'Liens divers(Linkdin, CV, portfolio', class:'col-md-4 col-form-label text-md-right' %>
-                  <div class="col-md-6">
-                    <%= f.text_field :link_field, class: "form-control" %> 
-                  </div>
-                </div>
-                <div class="col-md-6 offset-md-4 d-flex  mr-auto text-center">
-                  <%= f.submit "Sauvegarder", class: "btn btn-primary mr-auto" %>
-                  <% end %>
-                  <%= link_to "Supprimer", project_path(@project.id), method: :delete, class: "btn btn-outline-primary mr-auto", :data => {:confirm => 'Es-tu sûr ?'} %>
-                </div>
-                <br>              
-              </div>
+        <div class="card-header bg-primary">
+          <h4 class="text-white text-center">Modifier un projet</h4>
+        </div>
+        <div class="card-body">
+          <%= form_with model: @project do |f| %>
+          <div class="form-group row d-flex flex-column align-items-center">
+            <div>
+              <% if @project.cover.attached? %>
+                <%= image_tag @project.cover.variant(resize: "120x120!") %>
+              <% else %>
+                <%= image_tag @project.picture, height: 240, width:"100%" %>
+              <% end %>
+            </div>
+            <div>
+              <%= f.file_field :cover %>
             </div>
           </div>
+          <div class="form-group row">
+            <%= f.label 'Ville', class:'col-md-4 col-form-label text-md-right'  %>
+            <div class="col-md-6">
+              <%= f.select :city_id, options_for_select([['Paris', 1], ['Biarritz', 2], ['Lyon', 3], ['Marseille', 4]]), {}, {id:"custom_dropdown", class: "form-control"} %>
+            </div>
+          </div>
+          <br> <br>
+          <div class="form-group row">
+            <%= f.label 'Titre', class:'col-md-4 col-form-label text-md-right'  %>
+            <div class="col-md-6">
+              <%= f.text_field :title, class: "form-control"%>
+            </div>
+          </div>
+          <br> <br>
+          <div class="form-group row">
+            <%= f.label 'Description', class:'col-md-4 col-form-label text-md-right'  %>
+            <div class="col-md-6">
+              <%= f.text_area :description, class: "form-control" %>
+            </div>
+          </div>
+          <br> <br>
+          <div class="form-group row">
+            <%= f.label 'Liens divers(Linkdin, CV, portfolio', class:'col-md-4 col-form-label text-md-right' %>
+            <div class="col-md-6">
+              <%= f.text_field :link_field, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6 offset-md-4 d-flex  mr-auto text-center">
+            <%= f.submit "Sauvegarder", class: "btn btn-primary mr-auto" %>
+            <% end %>
+            <%= link_to "Supprimer", project_path(@project.id), method: :delete, class: "btn btn-outline-primary mr-auto", :data => {:confirm => 'Es-tu sûr ?'} %>
+          </div>
+          <br>
         </div>
       </div>
+    </div>
+  </div>
 </div>
 <br>

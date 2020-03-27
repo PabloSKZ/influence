@@ -4,51 +4,58 @@
     <% if @project.cover.attached? %>
       <%= image_tag @project.cover, alt: 'cover',style:"height: auto; width: 100%; display: block;"%>
     <% else %>
-      <img style="height: auto; width: 100%; display: block;" src="<%= @project.picture =%>" alt="Card image">
+    <img style="height: auto; width: 100%; display: block;" src="<%= @project.picture =%>" alt="Card image">
     <% end %>
     <div class="card-body text-center">
-      <p class="card-text"><h5>Description du projet:</h5> <%= @project.description.tr('[\"\"]','') =%></p>
-      <p class="card-text"><h6>Ville:</h6> <%= City.find(@project.city_id).name =%></p> 
-      <p class="card-text"><h6>Liens:</h6> <a href="<%= @project.link_field %>"><%= @project.link_field.tr('[\"\"]','') =%></a></p> 
+      <p class="card-text">
+        <h5>Description du projet:</h5> <%= @project.description.tr('[\"\"]','') =%>
+      </p>
+      <p class="card-text">
+        <h6>Ville:</h6> <%= City.find(@project.city_id).name =%>
+      </p>
+      <p class="card-text">
+        <h6>Liens:</h6> <a href="<%= @project.link_field %>"><%= @project.link_field.tr('[\"\"]','') =%></a>
+      </p>
       <p class="card-text">
         <h6>Freelances sur le projet :</h6>
         <ul class="list-group">
           <% @project.adverts.each do |advert| %>
-            <li class="list-group-item">
-              <%= link_to "#{advert.user.first_name}, #{advert.tag}", advert_path(advert.id) %>
-              <% if (current_user != nil && current_user.id == @project.user_id) || (current_user != nil && current_user.id == advert.user_id) %>
-                <%= link_to "Désinscrire du projet", project_adverts_projects_join_path(@project.id,advert.id), method: :delete, class: "btn btn-danger btn-sm", :data => {:confirm => 'Es-tu sûr ?'} %>
-              <% end %>
-            </li>
+          <li class="list-group-item">
+            <%= link_to "#{advert.user.first_name}, #{advert.tag}", advert_path(advert.id) %>
+            <% if (current_user != nil && current_user.id == @project.user_id) || (current_user != nil && current_user.id == advert.user_id) %>
+              <%= link_to "Désinscrire du projet", project_adverts_projects_join_path(@project.id,advert.id), method: :delete, class: "btn btn-danger btn-sm", :data => {:confirm => 'Es-tu sûr ?'} %>
+            <% end %>
+          </li>
           <% end %>
         </ul>
       </p>
-      <div class="card-body text-muted text-center" >
+      <div class="card-body text-muted text-center">
         <% if current_user != nil && current_user.id == @project.user_id %>
           <%= link_to 'Inviter des Freelances', adverts_path, class: 'btn btn-primary' %>
           <%= link_to 'Modifier ce projet', edit_project_path, class: "btn btn-primary" %>
           <%= link_to 'Voir mes projets', dashboard_path(params[:id]), class: 'btn btn-primary' %>
         <% elsif current_user != nil && current_user.user_type == 'freelance' %>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              S'inviter sur le projet 
-            </button>
-            <% if current_user.adverts[0] == nil %>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%= link_to "Créer une annonce", new_advert_path, class: "dropdown-item" %>
-              </div>
-            <% else %>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <% current_user.adverts.each do |advert| %>
-                <% if !(@project.adverts.include?(advert))%>
-                    <%= link_to "En tant que #{advert.tag}", project_adverts_projects_join_index_path(advert.id,@project.id), method: :post, class: "dropdown-item" %>
-                  <% end %>  
-              <% end %>  
-            </div>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            S'inviter sur le projet
+          </button>
+          <% if current_user.adverts[0] == nil %>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "Créer une annonce", new_advert_path, class: "dropdown-item" %>
+          </div>
+          <% else %>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% current_user.adverts.each do |advert| %>
+              <% if !(@project.adverts.include?(advert))%>
+                <%= link_to "En tant que #{advert.tag}", project_adverts_projects_join_index_path(advert.id,@project.id), method: :post, class: "dropdown-item" %>
+              <% end %>
             <% end %>
+          </div>
+          <% end %>
             <%= link_to 'Retourner aux projets', projects_path, class: 'btn btn-primary' %>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>  
+    </div>
   </div>
-</div>

@@ -1,33 +1,35 @@
 <br>
 <div class="container">
-<div class="row justify-content-center">
-<div class="col-md-8">
-    <div class="card">
-          <div class="card-header bg-primary"><h4 class="text-white text-center">Liste de vos projets :</h4></div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h4 class="text-white text-center">Liste de vos projets :</h4>
+        </div>
         <div class="card-body">
-        <ul class="list-group">
+          <ul class="list-group">
             <% if current_user.projects[0] == nil %>
             <li class="list-group-item d-flex mb-1 project-list font-weight-bold">
-                <div class="mr-auto p-2">Vous n'avez pas de projets ! </div>
-                <div class=" justify-content-end", style="text-decoration: none"><%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %></div>
+              <div class="mr-auto p-2">Vous n'avez pas de projets ! </div>
+              <div class=" justify-content-end" , style="text-decoration: none">
+                <%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
+              </div>
             </li>
             <% end %>
-        <% current_user.projects.each do |project| %>
-                <li class="list-group-item d-flex mb-1 project-list font-weight-bold">
-                    <div class="mr-auto p-2"><%= project.title %></div>
-                    <div class=" justify-content-end", style="text-decoration: none">
-                    <%= link_to "Détails", project_path(project.id), :class => "btn btn-primary btn-sm" %>
-                    <%= link_to 'Modifier', edit_project_path(project.id), :class => "btn btn-primary btn-sm" %>
-                    <%= link_to "Supprimer", project_path(project.id), method: :delete, :class => "btn btn-primary btn-sm", :data => {:confirm => 'Es-tu sûr ?'}  %>
-                </div>
-                </li>
-            </ul>
-            <% end %>
-            </div>
-          </div>
+            <% current_user.projects.each do |project| %>
+            <li class="list-group-item d-flex mb-1 project-list font-weight-bold">
+              <div class="mr-auto p-2"><%= project.title %></div>
+              <div class=" justify-content-end" , style="text-decoration: none">
+                <%= link_to "Détails", project_path(project.id), :class => "btn btn-primary btn-sm" %>
+                <%= link_to 'Modifier', edit_project_path(project.id), :class => "btn btn-primary btn-sm" %>
+                <%= link_to "Supprimer", project_path(project.id), method: :delete, :class => "btn btn-primary btn-sm", :data => {:confirm => 'Es-tu sûr ?'}  %>
+              </div>
+            </li>
+          </ul>
+          <% end %>
         </div>
       </div>
-     </div>
-   </div>
- </div>
+    </div>
+  </div>
+</div>
 <br>
