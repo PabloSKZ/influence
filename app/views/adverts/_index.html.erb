@@ -21,7 +21,7 @@
       <%= f.number_field :price_lteq, min:10, step:10%>
     </div>
     <div class="submit">
-      <%= link_to "Clear", request.path, class: "btn btn-default" %>
+      <%= link_to "Clear", request.path, class: "btn btn-secondary" %>
       <%= f.submit "Rechercher", class: "btn btn-primary" %>
     </div>
   </div>
@@ -29,8 +29,8 @@
   </div>
   <div class="row mt-4">
     <% @adverts.each do |advert|%>
-      <div class="col-md-4 d-flex text-center">
-      <div class="card mb-4" style="width:20rem;">
+      <div class="col-md-4 d-flex text-center justify-content-center">
+      <div class="card mb-4">
       <h5 class="card-header bg-primary text-white"><%= advert.user.first_name %> <%= advert.user.last_name %></h5>
         <% if advert.avatar.attached? %>
           <%= image_tag advert.avatar, alt:'avatar',style:"height: auto; width: 100%; display: block;" %>
