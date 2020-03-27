@@ -20,10 +20,10 @@
         <h6>Freelances sur le projet :</h6>
         <ul class="list-group">
           <% @project.adverts.each do |advert| %>
-            <li class="list-group-item">
+            <li class="list-group-item project-list">
               <%= link_to "#{advert.user.first_name}, #{advert.tag}", advert_path(advert.id) %>
               <% if (current_user != nil && current_user.id == @project.user_id) || (current_user != nil && current_user.id == advert.user_id) %>
-                <%= link_to "Désinscrire du projet", project_adverts_projects_join_path(@project.id,advert.id), method: :delete, class: "btn btn-outline-danger btn-sm list-project", :data => {:confirm => 'Es-tu sûr ?'} %>
+                <%= link_to "Désinscrire du projet", project_adverts_projects_join_path(@project.id,advert.id), method: :delete, class: "btn btn-outline-danger btn-sm", :data => {:confirm => 'Es-tu sûr ?'} %>
               <% end %>
             </li>
           <% end %>
