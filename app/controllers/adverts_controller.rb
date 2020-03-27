@@ -11,8 +11,6 @@ class AdvertsController < ApplicationController
   end
 
   def create
-    puts params
-    puts "$"*100
     @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag], city_id: params[:advert][:city_id], description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
     @advert.user_id = current_user.id
     if !params[:advert][:cover].nil?
