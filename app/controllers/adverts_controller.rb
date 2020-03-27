@@ -11,11 +11,12 @@ class AdvertsController < ApplicationController
   end
 
   def create
-    @advert = Advert.new(title: params[:advert][:title],tag: params[:advert][:tag], city_id: params[:advert][:city_id], description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
+    @advert = Advert.new(tag: params[:advert][:tag], city_id: params[:advert][:city_id], description: params[:advert][:description],price: params[:advert][:price],link_field: params[:advert][:link_field])
     @advert.user_id = current_user.id
+    @advert.picture = "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg"
+    
     if !params[:advert][:cover].nil?
       @advert.avatar.attach(params[:advert][:cover])
-    
     end
     @errors = @advert.errors
     if @advert.save

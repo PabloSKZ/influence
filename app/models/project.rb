@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   has_one_attached :cover
   
   validates :title, :description, presence: true 
-  validates :link_field, format: { with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :multiline => true }
+  validates :link_field, format: { with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :multiline => true }, :allow_blank => true
 
   before_commit :cover_validation, on: :update
  
