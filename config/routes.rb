@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   root 'welcome#index'
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :adverts do
+  resources :adverts, :path => "profiles" do
     resources :avatars, only: [:create]
   end
   resources :dashboard, only:[:show]

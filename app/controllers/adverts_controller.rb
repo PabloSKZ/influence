@@ -15,8 +15,8 @@ class AdvertsController < ApplicationController
     @advert.user_id = current_user.id
     @advert.picture = "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg"
     
-    if !params[:advert][:cover].nil?
-      @advert.avatar.attach(params[:advert][:cover])
+    if !params[:advert][:avatar].nil?
+      @advert.avatar.attach(params[:advert][:avatar])
     end
     @errors = @advert.errors
     if @advert.save
