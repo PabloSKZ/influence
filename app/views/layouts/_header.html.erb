@@ -1,55 +1,56 @@
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="<%= root_path %>">
-  <%=image_tag('LogoInfluence-negatif3.png', class: "d-inline-block align-top logo")%>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarColor01">
-  <ul class="navbar-nav m-auto">
-    <li class="nav-item active">
-    <%= link_to 'Accueil', root_path, class: 'nav-link' %>
-    </li>
-  <li class="nav-item mt-3">
- <%= link_to 'A Propos', ourteam_path, class: 'nav-link' %>
- </li>
- <li class="nav-item mt-3">
- <%= link_to 'Contact', new_contact_path, class: 'nav-link' %>
-</li>
-</ul>
-
-  <% if current_user != nil && current_user.user_type == "freelance" %>
-    <%= link_to 'Créer une annonce', new_advert_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
-  <% elsif current_user != nil && current_user.user_type == "influencer" %>
-    <%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
-  <% end %>
-
-  <% if !user_signed_in? %>
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Se connecter
+    <%=image_tag('LogoInfluence-negatif3.png', class: "d-inline-block align-top logo")%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to "J\'ai déjà un compte", new_user_session_path, class: 'dropdown-item' %>
-      <%= link_to "S\'inscrire", new_user_registration_path, class: 'dropdown-item' %>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item active">
+          <%= link_to 'Accueil', root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item mt-3">
+          <%= link_to 'A Propos', ourteam_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item mt-3">
+          <%= link_to 'Contact', new_contact_path, class: 'nav-link' %>
+        </li>
+      </ul>
+
+      <% if current_user != nil && current_user.user_type == "freelance" %>
+        <%= link_to 'Créer une annonce', new_advert_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
+      <% elsif current_user != nil && current_user.user_type == "influencer" %>
+        <%= link_to 'Créer un projet', new_project_path, class: 'nav-link', class: "btn btn-secondary mr-5" %>
+      <% end %>
+
+      <% if !user_signed_in? %>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Se connecter
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "J\'ai déjà un compte", new_user_session_path, class: 'dropdown-item' %>
+          <%= link_to "S\'inscrire", new_user_registration_path, class: 'dropdown-item' %>
+        </div>
+      </div>
+      <% else %>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mon compte
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% if current_user != nil && current_user.admin == true %>
+            <%= link_to "Dashboard admin", admin_users_path, class: 'dropdown-item' %>
+          <% elsif current_user != nil && current_user.admin == false %>
+            <%= link_to "Mon dashboard", dashboard_path(current_user.id), class: 'dropdown-item' %>
+          <% end %>
+          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        </div>
+      </div>
+      <% end %>
     </div>
-  </div>
-  <% else %>
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Mon compte
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <% if current_user != nil && current_user.admin == true %>
-      <%= link_to "Dashboard admin", admin_users_path, class: 'dropdown-item' %>
-    <% elsif current_user != nil && current_user.admin == false %>
-      <%= link_to "Mon dashboard", dashboard_path(current_user.id), class: 'dropdown-item' %>
-    <% end %>
-      <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-    </div>
-  </div>
-  <% end %>
-</div>
 </nav>
-

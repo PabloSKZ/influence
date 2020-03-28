@@ -61,7 +61,7 @@ User.create(
     Project.create(
         description: Faker::Movie.quote,
         title: Faker::Movie.quote,
-        picture: "https://i.kym-cdn.com/entries/icons/mobile/000/026/738/future.jpg",
+        picture: "https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?cs=srgb&dl=adolescent-adulte-amusement-assiette-933964.jpg&fm=jpg",
         user_id: User.where(user_type: "influencer").sample.id,
         link_field: "http://www.instagram.com",
         city_id: rand(1..4)

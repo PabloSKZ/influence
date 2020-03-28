@@ -73,3 +73,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'active_storage_validations'
 gem 'administrate'
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
+
+group :development do
+  gem 'rails_real_favicon'
+end

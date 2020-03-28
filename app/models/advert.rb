@@ -7,13 +7,18 @@ class Advert < ApplicationRecord
   has_one_attached :avatar
   
   validates :description, :price, :tag, presence: true
-  validates :price, numericality: { only_integer: true, greater_than: 5 }
+  validates :price, numericality: { only_integer: true, greater_than: 0 }
   validates :tag, uniqueness: {scope: :user_id}
+<<<<<<< HEAD
   validates :description, length: { minimum: 50, maximum: 250 }
   validates :link_field, format: { with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,
       message: errors[:link_field] << "Mauvais format", :multiline => true }
+=======
+  validates :link_field, format: { with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, message: "mauvais format", :multiline => true }, :allow_blank => true
+>>>>>>> dev
   
   before_commit :avatar_validation, on: :update
+
   private
 
   def avatar_validation
