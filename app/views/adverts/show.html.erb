@@ -21,7 +21,7 @@
               href="<%= @advert.link_field %>"><%= @advert.link_field.tr('[\"\"]','') %></a></p>
         </div>
       </div>
-      <div class="sub-block d-flex flex-column align-items-center justify-content-center" style="width:20%;">
+      <div class="sub-block d-flex flex-column align-items-center justify-content-center ml-5" style="width:20%;">
         <% if current_user == nil %>
           <%= link_to "Contacter #{@advert.user.first_name}", new_user_session_path, class: "btn btn-primary" %>
         <% elsif current_user != nil && current_user.id == @advert.user_id %>
