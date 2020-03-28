@@ -1,7 +1,6 @@
 class CreateAdverts < ActiveRecord::Migration[5.2]
   def change
-    create_table :adverts do |t|
-      t.string :title
+    create_table :adverts do |t| 
       t.text :description
       t.string :picture
       t.string :link_field
