@@ -12,6 +12,8 @@
           Vous devez renseigner votre adresse mail
         <%when 'Password confirmation doesn\'t match Password'%>
           La confirmation du mot de passe a échoué
+        <%when 'Password is too short (minimum is 6 characters)'%>
+          Mot de passe trop court (6 caractères minimum)
         <% end %>
       </div>
     <% end %>
