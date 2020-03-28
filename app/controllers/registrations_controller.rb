@@ -8,10 +8,4 @@ class RegistrationsController < Devise::RegistrationsController
             new_advert_path
         end
     end
-
-    private
-
-    def sign_up_params
-      params.require(:user).permit(:email, :password, :first_name)
-    end
   end
