@@ -12,7 +12,6 @@ class AdvertDashboard < Administrate::BaseDashboard
     adverts_projects_joins: Field::HasMany,
     projects: Field::HasMany,
     id: Field::Number,
-    title: Field::String,
     description: Field::Text,
     picture: Field::String,
     link_field: Field::String,
@@ -40,7 +39,6 @@ class AdvertDashboard < Administrate::BaseDashboard
   adverts_projects_joins
   projects
   id
-  title
   description
   picture
   link_field
@@ -57,7 +55,6 @@ class AdvertDashboard < Administrate::BaseDashboard
   user
   adverts_projects_joins
   projects
-  title
   description
   picture
   link_field

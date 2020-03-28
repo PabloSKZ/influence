@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_183049) do
   end
 
   create_table "adverts", force: :cascade do |t|
-    t.string "title"
     t.text "description"
     t.string "picture"
     t.string "link_field"

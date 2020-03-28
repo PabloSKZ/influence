@@ -73,8 +73,7 @@ tags = ["Monteur", "Graphiste", "Maquilleur", "Photographe"]
 
 6.times do 
     Advert.create(
-        description: Faker::Movie.quote,
-        title: Faker::Movie.quote,
+        description: Faker::Movie.quote, 
         picture: "https://images.assetsdelivery.com/compings_v2/kritchanut/kritchanut1406/kritchanut140600093.jpg",
         user_id: User.where(user_type: "freelance").sample.id,
         link_field: "http://www.twitter.com",
