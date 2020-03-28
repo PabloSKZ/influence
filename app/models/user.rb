@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :adverts
   has_many :projects
   after_create :welcome_send
-
+  validates :first_name, :last_name, presence: true, on: :create
   
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
